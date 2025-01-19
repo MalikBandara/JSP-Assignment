@@ -114,6 +114,8 @@
 
 
 
+
+
 <!-- Bootstrap Icons CDN -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
@@ -122,5 +124,35 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    <%
+    String registrationStatus = (String) session.getAttribute("registrationStatus");
+    if ("success".equals(registrationStatus)) {
+        session.removeAttribute("registrationStatus"); // Clean up session attribute
+%>
+    Swal.fire({
+        title: 'Registration Successful!',
+        text: 'Your account has been created successfully.',
+        icon: 'success',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#D19C97'
+    });
+    <%
+        } else if ("error".equals(registrationStatus)) {
+            session.removeAttribute("registrationStatus"); // Clean up session attribute
+    %>
+    Swal.fire({
+        title: 'Registration Failed',
+        text: 'An error occurred while creating your account. Please try again.',
+        icon: 'error',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#D19C97'
+    });
+    <% } %>
+
+</script>
 </body>
 </html>

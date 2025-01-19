@@ -10,6 +10,7 @@ import org.example.assignment_jsp.BoLayer.BoFactory;
 import org.example.assignment_jsp.BoLayer.BoType;
 import org.example.assignment_jsp.Entity.User;
 import org.example.assignment_jsp.config.SessionFactoryConfiguration;
+import org.example.assignment_jsp.dto.UserDto;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -33,18 +34,23 @@ public class UserServlet extends HttpServlet {
             boolean isActive = true; // Default active status
             Timestamp createdAt = new Timestamp(System.currentTimeMillis());
 
-            User user = new User(0, username, email, password, isActive, role, createdAt);
+            UserDto user = new UserDto(0, username, email, password, isActive, role, createdAt);
 
-            userBo.SaveUsers(user);
+            boolean b = userBo.SaveUsers(user);
 
-            Session session = SessionFactoryConfiguration.getInstance().getSession();
-            Transaction transaction = session.beginTransaction();
-            session.save(user);
-            transaction.commit();
-            session.close();
+            if (b) {
+                req.getSession().setAttribute("registrationStatus", "success");
+                resp.sendRedirect("Registration.jsp");
+            } else {
+                req.getSession().setAttribute("registrationStatus", "error");
+                resp.sendRedirect("Registration.jsp");
+            }
+
 
         }catch (Exception e ){
             e.printStackTrace();
+            req.setAttribute("registrationStatus", "error");
         }
+
     }
 }
