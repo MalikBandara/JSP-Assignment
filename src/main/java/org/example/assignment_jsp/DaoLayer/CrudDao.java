@@ -1,4 +1,4 @@
 package org.example.assignment_jsp.DaoLayer;
 
-public interface CrudDao {
+public interface CrudDao <T> extends SuperDao{
 }
