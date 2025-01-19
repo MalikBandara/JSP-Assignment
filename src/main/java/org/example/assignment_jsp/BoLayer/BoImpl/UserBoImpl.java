@@ -17,4 +17,9 @@ public class UserBoImpl implements UserBo {
         User user1 = new User(user.getUserId(), user.getUserName(), user.getEmail(), user.getPassword(), user.isActive(), user.getRole(), user.getCreatedAt());
         return userDao.save(user1);
     }
+
+    @Override
+    public boolean LoginDateails(String email, String password) {
+       return userDao.Login(email,password);
+    }
 }

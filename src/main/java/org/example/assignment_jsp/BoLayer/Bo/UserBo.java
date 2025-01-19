@@ -6,4 +6,6 @@ import org.example.assignment_jsp.dto.UserDto;
 
 public interface UserBo extends SuperBo {
     boolean SaveUsers(UserDto user);
+
+    boolean LoginDateails(String email, String password);
 }

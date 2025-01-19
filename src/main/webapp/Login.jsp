@@ -43,7 +43,7 @@
                 <p class="text-center p-1 text-light">Access your account</p>
             </div>
             <div class="card-body">
-                <form action="loginUser.jsp" method="post">
+                <form action="Login" method="POST">
                     <!-- Email Input -->
                     <div class="mb-3">
                         <label for="emailAddress" class="form-label">Email Address</label>

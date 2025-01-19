@@ -8,18 +8,14 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.example.assignment_jsp.BoLayer.Bo.UserBo;
 import org.example.assignment_jsp.BoLayer.BoFactory;
 import org.example.assignment_jsp.BoLayer.BoType;
-import org.example.assignment_jsp.Entity.User;
-import org.example.assignment_jsp.config.SessionFactoryConfiguration;
 import org.example.assignment_jsp.dto.UserDto;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import java.io.IOException;
 import java.sql.Timestamp;
 
 
 @WebServlet(name = "UserServlet" , value = "/Registration")
-public class UserServlet extends HttpServlet {
+public class UserRegistrationServlet extends HttpServlet {
 
     UserBo userBo = (UserBo) BoFactory.getBoFactory().getBo(BoType.USER);
     @Override
