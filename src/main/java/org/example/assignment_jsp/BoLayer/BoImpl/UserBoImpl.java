@@ -22,4 +22,9 @@ public class UserBoImpl implements UserBo {
     public boolean LoginDateails(String email, String password) {
        return userDao.Login(email,password);
     }
+
+    @Override
+    public String getUserRole(String email) {
+       return userDao.getUserRole(email);
+    }
 }

@@ -8,4 +8,7 @@ public interface UserBo extends SuperBo {
     boolean SaveUsers(UserDto user);
 
     boolean LoginDateails(String email, String password);
+
+    public String getUserRole(String email);
+
 }

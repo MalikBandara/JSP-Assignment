@@ -26,17 +26,29 @@ public class UserLoginServelet  extends HttpServlet {
 
             System.out.println("Email: " + email + ", Password: " + password); // Debugging line
 
+            // Check if the user is authenticated
             boolean isAuthenticated = userBo.LoginDateails(email, password);
 
             System.out.println("isAuthenticated: " + isAuthenticated); // Debugging line
 
             if (isAuthenticated) {
+                // Get the role of the user (assuming you have a method in UserBo to get the role)
+                String role = userBo.getUserRole(email); // You need to implement this method
+
                 // Create a session and set a user attribute (email or user object)
                 HttpSession session = req.getSession();
                 session.setAttribute("user", email); // Store the user email or a user object
+                session.setAttribute("role", role); // Store the user's role
 
-                // Redirect to index.jsp after successful login
-                resp.sendRedirect("index.jsp");
+                // Redirect based on the user's role
+                if ("ADMIN".equalsIgnoreCase(role)) {
+                    // Redirect to admin dashboard if the role is Admin
+                    resp.sendRedirect("cart.jsp");
+                } else {
+                    // Redirect to customer dashboard if the role is Customer
+                    resp.sendRedirect("index.jsp");
+                }
+
             } else {
                 // If authentication fails, redirect to login.jsp with error message
                 req.setAttribute("error", "Invalid email or password");
@@ -49,6 +61,7 @@ public class UserLoginServelet  extends HttpServlet {
             resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "An unexpected error occurred");
         }
     }
+
 
 }
 

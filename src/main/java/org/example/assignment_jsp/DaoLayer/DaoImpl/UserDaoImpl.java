@@ -120,11 +120,25 @@ public class UserDaoImpl implements UserDao {
     }
 
 
-
-
-
-
-
+    @Override
+    public String getUserRole(String email) {
+        Session session = null;
+        String role = null;
+        try {
+            session = SessionFactoryConfiguration.getInstance().getSession();
+            String hql = "SELECT u.role FROM User u WHERE u.Email = :email";
+            role = (String) session.createQuery(hql)
+                    .setParameter("email", email)
+                    .uniqueResult(); // Returns the role of the user
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return role;
+    }
 
 }
 
