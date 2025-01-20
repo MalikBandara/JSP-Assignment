@@ -1,6 +1,6 @@
-<%@ page import="org.example.assignment_jsp.Entity.Category" %>
+<%@ page import="org.example.assignment_jsp.dto.CategoryDto" %>
 <%@ page import="java.util.List" %>
-<%@ page import="org.example.assignment_jsp.dto.CategoryDto" %><%--
+<%@ page import="org.example.assignment_jsp.Entity.Category" %><%--
   Created by IntelliJ IDEA.
   User: Win10-LL
   Date: 1/20/2025
@@ -35,6 +35,14 @@
 </head>
 <body>
 
+<div class="row align-items-center py-3 px-xl-5">
+    <div class="col-lg-3 d-none d-lg-block">
+        <a href="AdminDash.jsp" class="text-decoration-none">
+            <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">Admin</span>Page</h1>
+        </a>
+    </div>
+
+</div>
 
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -62,12 +70,25 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="category" class="form-label">Enter Category Id</label>
-                        <input type="text" id="category"  class="form-control" name="category">
+                        <label for="category" class="form-label">Category</label>
+                        <select id="category" name="category" class="form-control">
+                            <%
+                                List<CategoryDto> categories = (List<CategoryDto>) request.getAttribute("categories");
+                                if (categories != null && !categories.isEmpty()) {
+                                    for (CategoryDto category : categories) {
+                            %>
+                            <option value="<%= category.getCid() %>"><%= category.getCname() %></option>
+                            <%
+                                }
+                            } else {
+                            %>
+                            <option disabled>No categories available</option>
+                            <%
+                                }
+                            %>
+
+                        </select>
                     </div>
-
-
-
 
 
                     <div class="mb-3">

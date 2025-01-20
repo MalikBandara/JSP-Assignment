@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Save Category</title>
 
+    <link href="css/style.css" rel="stylesheet">
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -14,13 +16,13 @@
 
     <style>
         body {
-            background-color: #D19C97; /* Soft brownish color */
+            background-color: white; /* Soft brownish color */
             font-family: 'Poppins', sans-serif;
             color: #333;
         }
 
         .container {
-            background-color: #ffffff;
+            background-color: whitesmoke;
             padding: 40px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -75,6 +77,14 @@
     </style>
 </head>
 <body>
+<div class="row align-items-center py-3 px-xl-5">
+    <div class="col-lg-3 d-none d-lg-block">
+        <a href="AdminDash.jsp" class="text-decoration-none">
+            <h1 class="m-0 display-5 font-weight-semi-bold" style="color: black ;font-weight: bold"><span class=" font-weight-bold border px-3 mr-1" style="color: #b58480 ; font-weight: bold">Admin</span>Page</h1>
+        </a>
+    </div>
+
+</div>
 
 <div class="container">
     <h2>Save Category</h2>
@@ -91,7 +101,7 @@
             <input type="text" id="name" name="name" required>
         </div>
 
-        <button type="submit" class="bg-success">Save Category</button>
+        <button type="submit" style="background-color:#b58480 ">Save Category</button>
     </form>
 </div>
 

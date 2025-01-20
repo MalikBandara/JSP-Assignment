@@ -24,7 +24,7 @@
         }
         .dashboard-card-header {
             background-color: #D19C97;
-            color: white;
+            color: black;
             text-align: center;
             padding: 15px;
             font-size: 20px;
@@ -64,8 +64,18 @@
             color: #b58480;
         }
     </style>
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+
+<div class="row align-items-center py-3 px-xl-5">
+    <div class="col-lg-3 d-none d-lg-block">
+        <a href="index.jsp" class="text-decoration-none">
+            <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">A</span>nonimus</h1>
+        </a>
+    </div>
+
+</div>
 
 <!-- Admin Dashboard Start -->
 <div class="container-fluid">
@@ -92,7 +102,7 @@
                         </div>
                         <div class="card-body dashboard-card-body">
                             <ul class="list-unstyled">
-                                <li><a href="products-save.jsp" class="btn btn-block">Add Product</a></li>
+                                <li><a href="products-save" class="btn btn-block">Add Product</a></li>
                                 <li><a href="products-all" class="btn btn-block">View Products</a></li>
                                 <li><a href="products-update.jsp" class="btn btn-block">Update Product</a></li>
                                 <li><a href="products-delete.jsp" class="btn btn-block btn-danger">Delete Product</a></li>

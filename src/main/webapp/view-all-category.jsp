@@ -60,8 +60,18 @@
       border-radius: 5px;
     }
   </style>
+  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+
+<div class="row align-items-center py-3 px-xl-5">
+  <div class="col-lg-3 d-none d-lg-block">
+    <a href="AdminDash.jsp" class="text-decoration-none">
+      <h1 class="m-0 display-5 font-weight-semi-bold" style="color: black ;font-weight: bold"><span class=" font-weight-bold border px-3 mr-1" style="color: #b58480 ; font-weight: bold">Admin</span>Page</h1>
+    </a>
+  </div>
+
+</div>
 
 <div class="container">
   <h3 class="text-center mb-4">Category List</h3>

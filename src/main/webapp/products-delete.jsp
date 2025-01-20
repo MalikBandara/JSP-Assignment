@@ -23,12 +23,77 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light background color */
+            font-family: 'Poppins', sans-serif;
+        }
+
+        h2 {
+            font-weight: bold;
+            color: #343a40;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .table {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-dark {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .table-striped tbody tr:nth-child(odd) {
+            background-color: #f1f1f1; /* Light background for odd rows */
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: #e2e6ea; /* Light hover effect */
+        }
+
+        .alert-warning {
+            color: #856404;
+            background-color: #fff3cd;
+            border-color: #ffeeba;
+            padding: 15px;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+        .table-responsive {
+            max-width: 100%;
+            margin: 20px auto;
+        }
+    </style>
 </head>
 <body>
+<div class="row align-items-center py-3 px-xl-5">
+    <div class="col-lg-3 d-none d-lg-block">
+        <a href="AdminDash.jsp" class="text-decoration-none">
+            <h1 class="m-0 display-5 font-weight-semi-bold" style="color: black ;font-weight: bold"><span class=" font-weight-bold border px-3 mr-1" style="color: #b58480 ; font-weight: bold">Admin</span>Page</h1>
+        </a>
+    </div>
+
+</div>
 
 <div class="container mt-5">
     <div class="row justify-content-center">

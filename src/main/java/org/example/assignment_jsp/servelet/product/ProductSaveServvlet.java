@@ -18,16 +18,24 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
 
 @WebServlet(name =  "ProductSaveServvlet" , value = "/products-save")
 public class ProductSaveServvlet extends HttpServlet {
-
-
     CategoryBo categoryBo = (CategoryBo) BoFactory.getBoFactory().getBo(BoType.CATEGORY);
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<CategoryDto> allCategory = categoryBo.getAllCategory();
+        System.out.println(allCategory);
+
+        req.setAttribute("categories" , allCategory);
+
+        req.getRequestDispatcher("products-save.jsp").forward(req,resp);
+    }
+
     ProductsBo productsBo = (ProductsBo) BoFactory.getBoFactory().getBo(BoType.PRODUCT);
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -63,4 +71,5 @@ public class ProductSaveServvlet extends HttpServlet {
 
 
     }
+
 }

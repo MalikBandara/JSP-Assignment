@@ -7,6 +7,7 @@
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -18,7 +19,7 @@
     <!-- Custom Styles -->
     <style>
         body {
-            background-color: #D19C97; /* Soft brownish color */
+            background-color: whitesmoke; /* Soft brownish color */
             font-family: 'Poppins', sans-serif;
             color: #333;
         }
@@ -79,6 +80,14 @@
 </head>
 <body>
 
+<div class="row align-items-center py-3 px-xl-5">
+    <div class="col-lg-3 d-none d-lg-block">
+        <a href="AdminDash.jsp" class="text-decoration-none">
+            <h1 class="m-0 display-5 font-weight-semi-bold" style="color: black ;font-weight: bold"><span class=" font-weight-bold border px-3 mr-1" style="color: #b58480 ; font-weight: bold">Admin</span>Page</h1>
+        </a>
+    </div>
+
+</div>
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-lg-6 col-md-8 col-sm-10">
