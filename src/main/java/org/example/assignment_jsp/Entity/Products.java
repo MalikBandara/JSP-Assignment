@@ -19,8 +19,7 @@ public class Products {
     private String name;
     private String qty;
     private String price;
-    @Lob
-    private byte [] image;
+    private String  image;
     @ManyToOne
     private Category category;
 }

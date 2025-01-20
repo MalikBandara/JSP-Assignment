@@ -49,7 +49,7 @@
         <div class="col-lg-6 col-md-8 col-sm-10">
             <div class="card shadow p-4">
                 <h3 class="text-center mb-4">Save Product</h3>
-                <form action="products-save" method="post">
+                <form action="products-save" method="post" enctype="multipart/form-data">
 
                     <div class="mb-3">
                         <label for="id" class="form-label">Product ID</label>
@@ -92,9 +92,8 @@
 
 
                     <div class="mb-3">
-                        <label for="productImage" class="form-label">Product Image</label>
-                        <input type="file" id="productImage" accept="image/*" required>
-                        <input type="hidden" id="imageHiddenField" name="productImage">
+                        <label for="image" class="form-label">Image</label>
+                        <input type="file" class="form-control" id="image" placeholder="Input image" name="product_img">
                     </div>
 
                     <button type="submit" class="btn btn-primary w-100">Save Product</button>

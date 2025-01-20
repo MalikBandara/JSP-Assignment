@@ -115,6 +115,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Price</th>
                 <th scope="col">Quantity</th>
+                <th scope="col">Image</th>
             </tr>
             </thead>
             <tbody>
@@ -127,6 +128,7 @@
                 <td><%= productsDto.getName() %></td>
                 <td><%= productsDto.getPrice() %></td>
                 <td><%= productsDto.getQty() %></td>
+                <td><img src="<%= productsDto.getImage() %>" alt="product image" width="100" height="100"></td>
             </tr>
             <%
                 }

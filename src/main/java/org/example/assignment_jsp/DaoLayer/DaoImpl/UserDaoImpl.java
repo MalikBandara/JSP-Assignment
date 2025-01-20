@@ -11,6 +11,7 @@ import org.hibernate.query.Query;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoImpl implements UserDao {
@@ -117,7 +118,20 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> getAll() {
-        return null;
+        Transaction transaction = null;
+       try {
+
+           Session session = SessionFactoryConfiguration.getInstance().getSession();
+           transaction =  session.beginTransaction();
+           List<User> users = new ArrayList<>();
+           users = session.createQuery("FROM  User ", User.class).getResultList();
+
+           return users;
+       }catch (Exception e ){
+           e.printStackTrace();
+           return null;
+
+       }
     }
 
     @Override

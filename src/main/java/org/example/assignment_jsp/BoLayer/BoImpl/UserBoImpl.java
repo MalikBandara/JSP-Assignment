@@ -7,6 +7,9 @@ import org.example.assignment_jsp.DaoLayer.DaoType;
 import org.example.assignment_jsp.Entity.User;
 import org.example.assignment_jsp.dto.UserDto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserBoImpl implements UserBo {
 
 
@@ -26,5 +29,17 @@ public class UserBoImpl implements UserBo {
     @Override
     public String getUserRole(String email) {
        return userDao.getUserRole(email);
+    }
+
+    @Override
+    public List<UserDto> getAllUsers() {
+        List<User> all = userDao.getAll();
+
+        List<UserDto> userDtos = new ArrayList<>();
+        for (User user : all){
+            UserDto userDto = new UserDto(user.getUserId(), user.getUserName(), user.getEmail(), user.getPassword(), user.isActive(), user.getRole(), user.getCreatedAt());
+            userDtos.add(userDto);
+        }
+        return userDtos;
     }
 }
