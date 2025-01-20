@@ -1,5 +1,6 @@
 package org.example.assignment_jsp.BoLayer;
 
+import org.example.assignment_jsp.BoLayer.BoImpl.ProductsBoImpl;
 import org.example.assignment_jsp.BoLayer.BoImpl.UserBoImpl;
 
 public class BoFactory {
@@ -22,6 +23,8 @@ public class BoFactory {
         switch (boType){
             case USER:
                 return new UserBoImpl();
+            case PRODUCT:
+                return new ProductsBoImpl();
 
             default:
                 return null;

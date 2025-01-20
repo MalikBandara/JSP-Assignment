@@ -43,7 +43,7 @@ public class UserLoginServelet  extends HttpServlet {
                 // Redirect based on the user's role
                 if ("ADMIN".equalsIgnoreCase(role)) {
                     // Redirect to admin dashboard if the role is Admin
-                    resp.sendRedirect("cart.jsp");
+                    resp.sendRedirect("AdminDash.jsp");
                 } else {
                     // Redirect to customer dashboard if the role is Customer
                     resp.sendRedirect("index.jsp");

@@ -1,5 +1,6 @@
 package org.example.assignment_jsp.config;
 
+import org.example.assignment_jsp.Entity.Products;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -26,7 +27,7 @@ public class SessionFactoryConfiguration {
         try {
             // Load the Hibernate configuration and create the SessionFactory
             Configuration configuration = new Configuration().configure("hibernate.cfg.xml"); // You can specify the config file here
-            configuration.addAnnotatedClass(org.example.assignment_jsp.Entity.User.class); // Add annotated entity class(es)
+            configuration.addAnnotatedClass(org.example.assignment_jsp.Entity.User.class).addAnnotatedClass(Products.class); // Add annotated entity class(es)
             sessionFactory = configuration.buildSessionFactory();
         } catch (Exception e) {
             e.printStackTrace();
