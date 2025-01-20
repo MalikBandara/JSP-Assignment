@@ -1,5 +1,6 @@
 package org.example.assignment_jsp.DaoLayer;
 
+import org.example.assignment_jsp.DaoLayer.DaoImpl.CategoryDaoImpl;
 import org.example.assignment_jsp.DaoLayer.DaoImpl.ProductsDaoImpl;
 import org.example.assignment_jsp.DaoLayer.DaoImpl.UserDaoImpl;
 
@@ -24,6 +25,8 @@ public class DaoFactory {
                 return new UserDaoImpl();
             case PRODUCT:
                 return new ProductsDaoImpl();
+            case CATEGORY:
+                return  new CategoryDaoImpl();
             default:
                 return null;
         }

@@ -11,6 +11,17 @@
     <title>cart save</title>
 </head>
 <body>
+<form action="category-save" method="post">
 
+    <label for="id">id:</label><br>
+    <input type="text" id="id" name="id"><br><br>
+
+    <label for="name">name:</label><br>
+    <input type="text" id="name" name="name"> <br><br>
+
+
+
+    <button type="submit">save ctgr</button>
+</form>
 </body>
 </html>

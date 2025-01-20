@@ -1,5 +1,6 @@
 package org.example.assignment_jsp.BoLayer;
 
+import org.example.assignment_jsp.BoLayer.BoImpl.CategoryBoImpl;
 import org.example.assignment_jsp.BoLayer.BoImpl.ProductsBoImpl;
 import org.example.assignment_jsp.BoLayer.BoImpl.UserBoImpl;
 
@@ -25,6 +26,8 @@ public class BoFactory {
                 return new UserBoImpl();
             case PRODUCT:
                 return new ProductsBoImpl();
+            case CATEGORY:
+                return new CategoryBoImpl();
 
             default:
                 return null;
