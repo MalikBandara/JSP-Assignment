@@ -1,6 +1,7 @@
 package org.example.assignment_jsp.DaoLayer.DaoImpl;
 
 import org.example.assignment_jsp.DaoLayer.Dao.UserDao;
+import org.example.assignment_jsp.Entity.Category;
 import org.example.assignment_jsp.Entity.User;
 import org.example.assignment_jsp.config.SessionFactoryConfiguration;
 import org.hibernate.Session;
@@ -116,6 +117,11 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> getAll() {
+        return null;
+    }
+
+    @Override
+    public Category getCategoryById(String category1) {
         return null;
     }
 

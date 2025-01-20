@@ -18,4 +18,12 @@ public class CategoryDto {
     private String cid;
     private String cname;
     private Timestamp createdAt = new Timestamp(System.currentTimeMillis());
+    @Override
+    public String toString() {
+        return "CategoryDto{" +
+                "cid='" + cid + '\'' +
+                ", cname='" + cname + '\'' +
+                '}';
+    }
+
 }

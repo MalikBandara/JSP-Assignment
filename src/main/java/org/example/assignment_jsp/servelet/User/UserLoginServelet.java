@@ -46,7 +46,7 @@ public class UserLoginServelet  extends HttpServlet {
                     resp.sendRedirect("AdminDash.jsp");
                 } else {
                     // Redirect to customer dashboard if the role is Customer
-                    resp.sendRedirect("index.jsp");
+                    resp.sendRedirect("UserDashBoard.jsp");
                 }
 
             } else {

@@ -13,4 +13,6 @@ public interface CategoryBo extends SuperBo {
     boolean UpdateCategory(CategoryDto categoryDto);
 
     List<CategoryDto> getAllCategory();
+
+    CategoryDto searchByCategoryId(String category1);
 }

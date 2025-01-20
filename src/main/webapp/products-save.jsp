@@ -1,10 +1,13 @@
-<%--
+<%@ page import="org.example.assignment_jsp.Entity.Category" %>
+<%@ page import="java.util.List" %>
+<%@ page import="org.example.assignment_jsp.dto.CategoryDto" %><%--
   Created by IntelliJ IDEA.
   User: Win10-LL
   Date: 1/20/2025
   Time: 9:07 AM
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -54,9 +57,19 @@
                         <input type="text" id="price" class="form-control" name="price">
                     </div>
                     <div class="mb-3">
-                        <label for="qty" class="form-label">Quantity</label>
+                        <label for="qry" class="form-label">Quantity</label>
                         <input type="text" id="qry"  class="form-control" name="qty">
                     </div>
+
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Enter Category Id</label>
+                        <input type="text" id="category"  class="form-control" name="category">
+                    </div>
+
+
+
+
+
                     <div class="mb-3">
                         <label for="productImage" class="form-label">Product Image</label>
                         <input type="file" id="productImage" accept="image/*" required>

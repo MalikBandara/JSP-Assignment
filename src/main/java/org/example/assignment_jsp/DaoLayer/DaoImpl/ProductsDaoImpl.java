@@ -1,6 +1,7 @@
 package org.example.assignment_jsp.DaoLayer.DaoImpl;
 
 import org.example.assignment_jsp.DaoLayer.Dao.ProductsDao;
+import org.example.assignment_jsp.Entity.Category;
 import org.example.assignment_jsp.Entity.Products;
 import org.example.assignment_jsp.config.SessionFactoryConfiguration;
 import org.hibernate.Session;
@@ -102,5 +103,10 @@ public class ProductsDaoImpl implements ProductsDao {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @Override
+    public Category getCategoryById(String category1) {
+        return null;
     }
 }

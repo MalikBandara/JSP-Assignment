@@ -1,10 +1,7 @@
 package org.example.assignment_jsp.Entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,4 +21,6 @@ public class Products {
     private String price;
     @Lob
     private byte [] image;
+    @ManyToOne
+    private Category category;
 }

@@ -1,5 +1,6 @@
 package org.example.assignment_jsp.DaoLayer;
 
+import org.example.assignment_jsp.Entity.Category;
 import org.example.assignment_jsp.Entity.User;
 import org.example.assignment_jsp.dto.ProductsDto;
 
@@ -15,4 +16,6 @@ public interface CrudDao <T> extends SuperDao{
     boolean update(T t);
 
     List<T> getAll();
+
+    Category getCategoryById(String category1);
 }

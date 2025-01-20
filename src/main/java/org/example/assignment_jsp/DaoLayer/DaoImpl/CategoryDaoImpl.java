@@ -6,6 +6,7 @@ import org.example.assignment_jsp.Entity.Products;
 import org.example.assignment_jsp.config.SessionFactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,6 +88,26 @@ public class CategoryDaoImpl implements CategoryDao {
             return categories;
 
         }catch (Exception e ){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public Category getCategoryById(String category1) {
+        try {
+            Session session = SessionFactoryConfiguration.getInstance().getSession();
+            Transaction transaction = session.beginTransaction();
+
+            String hql = "FROM Category WHERE cid = :category1";
+            Query<Category> query = session.createQuery(hql, Category.class);
+            query.setParameter("category1" , category1);
+
+            Category customer = query.uniqueResult();
+
+            transaction.commit();
+            return customer;
+        }catch (Exception e){
             e.printStackTrace();
             return null;
         }

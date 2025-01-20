@@ -22,5 +22,13 @@ public class Category {
     private String cname;
     @Column(name = "created_at", nullable = false)
     private Timestamp createdAt = new Timestamp(System.currentTimeMillis());
+    @Override
+    public String toString() {
+        return "Category{" +
+                "cid='" + cid + '\'' +
+                ", cname='" + cname + '\'' +
+                ", createdAt=" + createdAt +
+                '}';
+    }
 }
 

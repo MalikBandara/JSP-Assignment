@@ -15,7 +15,7 @@ public class ProductsBoImpl implements ProductsBo {
     ProductsDao productsDao = (ProductsDao) DaoFactory.getDaoFactory().getDao(DaoType.PRODUCT);
     @Override
     public boolean saveProducts(ProductsDto products) {
-        Products products1 = new Products(products.getPid(), products.getName(), products.getQty(), products.getPrice(), products.getImage());
+        Products products1 = new Products(products.getPid(), products.getName(), products.getQty(), products.getPrice(), products.getImage(),products.getCategory());
         return productsDao.save(products1);
     }
 
@@ -26,7 +26,7 @@ public class ProductsBoImpl implements ProductsBo {
 
     @Override
     public boolean updateProducts(ProductsDto products) {
-        Products products1 = new Products(products.getPid(), products.getName(), products.getQty(), products.getPrice(), products.getImage());
+        Products products1 = new Products(products.getPid(), products.getName(), products.getQty(), products.getPrice(), products.getImage(),products.getCategory());
         return productsDao.update(products1);
     }
 

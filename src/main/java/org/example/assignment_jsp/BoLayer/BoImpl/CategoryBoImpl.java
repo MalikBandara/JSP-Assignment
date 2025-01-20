@@ -47,4 +47,11 @@ public class CategoryBoImpl implements CategoryBo {
         }
         return categoryDtos;
     }
+
+    @Override
+    public CategoryDto searchByCategoryId(String category1) {
+        Category categoryById = categoryDao.getCategoryById(category1);
+        CategoryDto categoryDto = new CategoryDto(categoryById.getCid(),categoryById.getCname(),categoryById.getCreatedAt());
+        return categoryDto;
+    }
 }

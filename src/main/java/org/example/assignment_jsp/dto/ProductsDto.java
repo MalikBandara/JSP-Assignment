@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.example.assignment_jsp.Entity.Category;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,4 +17,5 @@ public class ProductsDto {
     private String qty;
     private String price;
     private byte [] image;
+    private Category category;
 }
