@@ -114,6 +114,11 @@ public class UserDaoImpl implements UserDao {
         return false;
     }
 
+    @Override
+    public List<User> getAll() {
+        return null;
+    }
+
 
     // Method to hash the password (you should use a secure algorithm like SHA-256)
     private String hashPassword(String password) throws NoSuchAlgorithmException {

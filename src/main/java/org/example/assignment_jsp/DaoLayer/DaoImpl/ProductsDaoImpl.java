@@ -6,6 +6,9 @@ import org.example.assignment_jsp.config.SessionFactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProductsDaoImpl implements ProductsDao {
     @Override
     public boolean save(Products products) {
@@ -66,6 +69,38 @@ public class ProductsDaoImpl implements ProductsDao {
             transaction.rollback();
             return false;
 
+        }
+    }
+
+    @Override
+    public List<Products> getAll() {
+
+        Transaction transaction = null ;
+
+        try {
+            Session session = SessionFactoryConfiguration.getInstance().getSession();
+            transaction =  session.beginTransaction();
+
+            List<Products> products = new ArrayList<>();
+            products = session.createQuery("FROM Products", Products.class).getResultList();
+
+            System.out.println("Retrieved Products:");
+            for (Products product : products) {
+                System.out.println("ID: " + product.getPid() +
+                        ", Name: " + product.getName() +
+                        ", Price: " + product.getPrice() +
+                        ", Quantity: " + product.getQty() +
+                        ", Image: " + product.getImage());
+            }
+
+            // Commit the transaction
+            transaction.commit();
+            session.close();
+            return products;
+
+        }catch (Exception e ){
+            e.printStackTrace();
+            return null;
         }
     }
 }

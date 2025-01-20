@@ -7,6 +7,9 @@ import org.example.assignment_jsp.DaoLayer.DaoType;
 import org.example.assignment_jsp.Entity.Products;
 import org.example.assignment_jsp.dto.ProductsDto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProductsBoImpl implements ProductsBo {
 
     ProductsDao productsDao = (ProductsDao) DaoFactory.getDaoFactory().getDao(DaoType.PRODUCT);
@@ -25,5 +28,29 @@ public class ProductsBoImpl implements ProductsBo {
     public boolean updateProducts(ProductsDto products) {
         Products products1 = new Products(products.getPid(), products.getName(), products.getQty(), products.getPrice(), products.getImage());
         return productsDao.update(products1);
+    }
+
+    @Override
+    public List<ProductsDto> getAllProducts() {
+        List<Products> all = productsDao.getAll();
+
+        List<ProductsDto> productDtoList = new ArrayList<>();
+
+        for (Products product : all){
+            ProductsDto dto = new ProductsDto();
+            dto.setPid(product.getPid());
+            dto.setName(product.getName());
+            dto.setPrice(product.getPrice());
+            dto.setQty(product.getQty()); // Assuming `category` is a direct mapping
+            dto.setImage(product.getImage()); // Example additional fields
+            productDtoList.add(dto); // Add the DTO to the list
+        }
+        System.out.println("Converting Products to ProductsDto...");
+        for (Products product : all) {
+            System.out.println("Converting Product ID: " + product.getPid());
+        }
+
+        return productDtoList;
+
     }
 }
