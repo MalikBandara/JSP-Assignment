@@ -1,4 +1,4 @@
-package org.example.assignment_jsp.servelet;
+package org.example.assignment_jsp.servelet.User;
 
 
 import jakarta.servlet.ServletException;

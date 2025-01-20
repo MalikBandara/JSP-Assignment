@@ -1,4 +1,4 @@
-package org.example.assignment_jsp.servelet;
+package org.example.assignment_jsp.servelet.product;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
