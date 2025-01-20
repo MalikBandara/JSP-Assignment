@@ -20,4 +20,10 @@ public class ProductsBoImpl implements ProductsBo {
     public boolean deleteProducts(String id) {
        return productsDao.delete(id);
     }
+
+    @Override
+    public boolean updateProducts(ProductsDto products) {
+        Products products1 = new Products(products.getPid(), products.getName(), products.getQty(), products.getPrice(), products.getImage());
+        return productsDao.update(products1);
+    }
 }

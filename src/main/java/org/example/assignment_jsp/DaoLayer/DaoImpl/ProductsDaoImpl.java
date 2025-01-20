@@ -8,14 +8,14 @@ import org.hibernate.Transaction;
 
 public class ProductsDaoImpl implements ProductsDao {
     @Override
-    public boolean save(Products user1) {
+    public boolean save(Products products) {
 
         Transaction transaction = null;
         try {
 
             Session session = SessionFactoryConfiguration.getInstance().getSession();
             transaction = session.beginTransaction();
-            session.save(user1);
+            session.save(products);
             transaction.commit();
             session.close();
             return true;
@@ -47,6 +47,25 @@ public class ProductsDaoImpl implements ProductsDao {
         }catch (Exception e ){
             e.printStackTrace();
             return false;
+        }
+    }
+
+    @Override
+    public boolean update(Products products) {
+        Transaction transaction = null;
+        try {
+
+            Session session = SessionFactoryConfiguration.getInstance().getSession();
+            transaction = session.beginTransaction();
+            session.update(products);
+            transaction.commit();
+            session.close();
+            return true;
+
+        }catch (Exception e ){
+            transaction.rollback();
+            return false;
+
         }
     }
 }

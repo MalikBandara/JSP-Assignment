@@ -109,6 +109,11 @@ public class UserDaoImpl implements UserDao {
         return false;
     }
 
+    @Override
+    public boolean update(User user) {
+        return false;
+    }
+
 
     // Method to hash the password (you should use a secure algorithm like SHA-256)
     private String hashPassword(String password) throws NoSuchAlgorithmException {

@@ -7,4 +7,7 @@ public interface ProductsBo extends SuperBo {
     boolean saveProducts(ProductsDto products);
 
     boolean deleteProducts(String id);
+
+    boolean updateProducts(ProductsDto products);
+
 }
