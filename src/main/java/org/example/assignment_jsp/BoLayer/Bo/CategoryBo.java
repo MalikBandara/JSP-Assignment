@@ -7,4 +7,6 @@ public interface CategoryBo extends SuperBo {
     boolean saveCategory(CategoryDto categoryDto);
 
     boolean deleteProducts(String id);
+
+    boolean UpdateCategory(CategoryDto categoryDto);
 }

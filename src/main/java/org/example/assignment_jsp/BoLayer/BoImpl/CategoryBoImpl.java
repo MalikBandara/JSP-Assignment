@@ -21,4 +21,10 @@ public class CategoryBoImpl implements CategoryBo {
     public boolean deleteProducts(String id) {
        return categoryDao.delete(id);
     }
+
+    @Override
+    public boolean UpdateCategory(CategoryDto categoryDto) {
+        Category category = new Category(categoryDto.getCid(), categoryDto.getCname(), categoryDto.getCreatedAt());
+        return categoryDao.update(category);
+    }
 }

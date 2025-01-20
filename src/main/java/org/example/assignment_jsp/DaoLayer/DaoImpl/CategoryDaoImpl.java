@@ -52,7 +52,21 @@ public class CategoryDaoImpl implements CategoryDao {
 
     @Override
     public boolean update(Category category) {
-        return false;
+        Transaction transaction = null;
+        try {
+
+            Session session = SessionFactoryConfiguration.getInstance().getSession();
+            transaction = session.beginTransaction();
+            session.update(category);
+            transaction.commit();
+            session.close();
+            return true;
+
+        }catch (Exception e ){
+            transaction.rollback();
+            return false;
+
+        }
     }
 
     @Override
