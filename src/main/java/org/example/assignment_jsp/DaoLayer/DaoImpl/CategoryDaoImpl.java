@@ -7,6 +7,7 @@ import org.example.assignment_jsp.config.SessionFactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryDaoImpl implements CategoryDao {
@@ -71,6 +72,23 @@ public class CategoryDaoImpl implements CategoryDao {
 
     @Override
     public List<Category> getAll() {
-        return null;
+        Transaction transaction = null ;
+
+        try {
+            Session session = SessionFactoryConfiguration.getInstance().getSession();
+            transaction =  session.beginTransaction();
+
+            List<Category> categories = new ArrayList<>();
+            categories = session.createQuery("FROM Category", Category.class).getResultList();
+
+            // Commit the transaction
+            transaction.commit();
+            session.close();
+            return categories;
+
+        }catch (Exception e ){
+            e.printStackTrace();
+            return null;
+        }
     }
 }

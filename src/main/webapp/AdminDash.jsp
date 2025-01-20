@@ -110,7 +110,7 @@
                         <div class="card-body dashboard-card-body">
                             <ul class="list-unstyled">
                                 <li><a href="category-save.jsp" class="btn btn-block">Add Category</a></li>
-                                <li><a href="viewCategories.jsp" class="btn btn-block">View Categories</a></li>
+                                <li><a href="view-all-category" class="btn btn-block">View Categories</a></li>
                                 <li><a href="category-update.jsp" class="btn btn-block">Update Category</a></li>
                                 <li><a href="category-delete.jsp" class="btn btn-block btn-danger">Delete Category</a></li>
                             </ul>

@@ -7,6 +7,9 @@ import org.example.assignment_jsp.DaoLayer.DaoType;
 import org.example.assignment_jsp.Entity.Category;
 import org.example.assignment_jsp.dto.CategoryDto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CategoryBoImpl implements CategoryBo {
 
     CategoryDao categoryDao = (CategoryDao) DaoFactory.getDaoFactory().getDao(DaoType.CATEGORY);
@@ -26,5 +29,22 @@ public class CategoryBoImpl implements CategoryBo {
     public boolean UpdateCategory(CategoryDto categoryDto) {
         Category category = new Category(categoryDto.getCid(), categoryDto.getCname(), categoryDto.getCreatedAt());
         return categoryDao.update(category);
+    }
+
+    @Override
+    public List<CategoryDto> getAllCategory() {
+        List<Category> all = categoryDao.getAll();
+
+        List<CategoryDto> categoryDtos = new ArrayList<>();
+
+        for (Category category : all){
+            CategoryDto dto = new CategoryDto();
+            dto.setCid(category.getCid());
+            dto.setCname(category.getCname());
+            dto.setCreatedAt(category.getCreatedAt());
+
+            categoryDtos.add(dto);
+        }
+        return categoryDtos;
     }
 }

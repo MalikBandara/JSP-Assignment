@@ -3,6 +3,7 @@ package org.example.assignment_jsp.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,5 +22,6 @@ public class Products {
     private String name;
     private String qty;
     private String price;
+    @Lob
     private byte [] image;
 }

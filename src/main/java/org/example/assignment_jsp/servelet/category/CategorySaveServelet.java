@@ -44,7 +44,7 @@ public class CategorySaveServelet extends HttpServlet {
 
         if (b) {
 //            req.getSession().setAttribute("registrationStatus", "success");
-            resp.sendRedirect("category-update.jsp");
+            resp.sendRedirect("category-save.jsp");
         } else {
 //            req.getSession().setAttribute("registrationStatus", "error");
             resp.sendRedirect("AdminDash.jsp");

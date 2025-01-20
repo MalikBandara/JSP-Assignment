@@ -27,6 +27,8 @@
     <!-- Update schema on startup -->
     <property name="hibernate.hbm2ddl.auto">update</property>
 
+
+
     <!-- Disable second-level cache -->
     <property name="hibernate.cache.use_second_level_cache">false</property>
 
