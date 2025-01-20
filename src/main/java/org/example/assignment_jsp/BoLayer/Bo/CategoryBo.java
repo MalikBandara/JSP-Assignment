@@ -6,4 +6,5 @@ import org.example.assignment_jsp.dto.CategoryDto;
 public interface CategoryBo extends SuperBo {
     boolean saveCategory(CategoryDto categoryDto);
 
+    boolean deleteProducts(String id);
 }

@@ -2,6 +2,7 @@ package org.example.assignment_jsp.DaoLayer.DaoImpl;
 
 import org.example.assignment_jsp.DaoLayer.Dao.CategoryDao;
 import org.example.assignment_jsp.Entity.Category;
+import org.example.assignment_jsp.Entity.Products;
 import org.example.assignment_jsp.config.SessionFactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -34,7 +35,19 @@ public class CategoryDaoImpl implements CategoryDao {
 
     @Override
     public boolean delete(String id) {
-        return false;
+        try {
+
+            Session session = SessionFactoryConfiguration.getInstance().getSession();
+            Transaction transaction = session.beginTransaction();
+            Category categery = session.get(Category.class, id);
+            session.delete(categery);
+            transaction.commit();
+            session.close();
+            return true;
+        }catch (Exception e ){
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override

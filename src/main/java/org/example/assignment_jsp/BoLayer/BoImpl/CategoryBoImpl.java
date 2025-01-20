@@ -16,4 +16,9 @@ public class CategoryBoImpl implements CategoryBo {
         Category category = new Category(categoryDto.getCid(), categoryDto.getCname(), categoryDto.getCreatedAt());
         return categoryDao.save(category);
     }
+
+    @Override
+    public boolean deleteProducts(String id) {
+       return categoryDao.delete(id);
+    }
 }
