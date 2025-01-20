@@ -5,4 +5,6 @@ import org.example.assignment_jsp.dto.ProductsDto;
 
 public interface ProductsBo extends SuperBo {
     boolean saveProducts(ProductsDto products);
+
+    boolean deleteProducts(String id);
 }

@@ -31,4 +31,22 @@ public class ProductsDaoImpl implements ProductsDao {
     public boolean Login(String email, String password) {
         return false;
     }
+
+    @Override
+    public boolean delete(String id) {
+
+        try {
+
+            Session session = SessionFactoryConfiguration.getInstance().getSession();
+            Transaction transaction = session.beginTransaction();
+            Products products = session.get(Products.class, id);
+            session.delete(products);
+            transaction.commit();
+            session.close();
+            return true;
+        }catch (Exception e ){
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

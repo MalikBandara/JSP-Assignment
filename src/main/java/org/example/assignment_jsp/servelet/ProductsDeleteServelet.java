@@ -10,39 +10,27 @@ import org.example.assignment_jsp.BoLayer.BoFactory;
 import org.example.assignment_jsp.BoLayer.BoType;
 import org.example.assignment_jsp.Entity.Products;
 import org.example.assignment_jsp.config.SessionFactoryConfiguration;
-import org.example.assignment_jsp.dto.ProductsDto;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.io.IOException;
-import java.util.Base64;
 
 
-@WebServlet(name =  "ProductSaveServvlet" , value = "/products-save")
-public class ProductSaveServvlet extends HttpServlet {
+@WebServlet(name =  "ProductsDeleteServelet" , value = "/products-delete")
+public class ProductsDeleteServelet extends HttpServlet {
 
     ProductsBo productsBo = (ProductsBo) BoFactory.getBoFactory().getBo(BoType.PRODUCT);
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+
         String id = req.getParameter("id");
-        String name = req.getParameter("name");
-        String price = req.getParameter("price");
-        String qty = req.getParameter("qty");
-        String imageString = req.getParameter("productImage");
-        byte[] imageBytes = null;
 
-        if (imageString != null && !imageString.isEmpty()) {
-            imageBytes = Base64.getDecoder().decode(imageString);
-        }
-
-        ProductsDto products = new ProductsDto(id, name, qty, price, imageBytes);
-
-        boolean b = productsBo.saveProducts(products);
+        boolean b = productsBo.deleteProducts(id);
 
         if (b) {
 //            req.getSession().setAttribute("registrationStatus", "success");
-            resp.sendRedirect("products-save.jsp");
+            resp.sendRedirect("products-delete.jsp");
         } else {
 //            req.getSession().setAttribute("registrationStatus", "error");
             resp.sendRedirect("AdminDash.jsp");
@@ -51,4 +39,3 @@ public class ProductSaveServvlet extends HttpServlet {
 
     }
 }
-

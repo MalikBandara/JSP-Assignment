@@ -15,4 +15,9 @@ public class ProductsBoImpl implements ProductsBo {
         Products products1 = new Products(products.getPid(), products.getName(), products.getQty(), products.getPrice(), products.getImage());
         return productsDao.save(products1);
     }
+
+    @Override
+    public boolean deleteProducts(String id) {
+       return productsDao.delete(id);
+    }
 }

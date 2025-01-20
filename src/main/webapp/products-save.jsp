@@ -11,7 +11,7 @@
     <title>prs</title>
 </head>
 <body>
-<form action="product-save" method="post">
+<form action="products-save" method="post">
 
     <label for="id">id:</label><br>
     <input type="text" id="id" name="id"><br><br>
@@ -30,6 +30,8 @@
 
     <button type="submit">save prd</button>
 </form>
+
+
 
 </body>
 </html>

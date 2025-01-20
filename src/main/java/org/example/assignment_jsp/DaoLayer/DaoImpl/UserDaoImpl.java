@@ -104,6 +104,11 @@ public class UserDaoImpl implements UserDao {
         return isAuthenticated;
     }
 
+    @Override
+    public boolean delete(String id) {
+        return false;
+    }
+
 
     // Method to hash the password (you should use a secure algorithm like SHA-256)
     private String hashPassword(String password) throws NoSuchAlgorithmException {
