@@ -6,6 +6,7 @@ import org.example.assignment_jsp.Entity.Products;
 import org.example.assignment_jsp.config.SessionFactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -109,4 +110,33 @@ public class ProductsDaoImpl implements ProductsDao {
     public Category getCategoryById(String category1) {
         return null;
     }
+
+    @Override
+    public List<Products> getProductsByCategory(String categoryId) {
+        Transaction transaction = null;
+        List<Products> products = new ArrayList<>();
+
+        try  {
+            Session session = SessionFactoryConfiguration.getInstance().getSession();
+            // Begin the transaction
+            transaction = session.beginTransaction();
+
+            // Create and execute the HQL query
+            String hql = "FROM Products p WHERE p.category.cid = :categoryId";
+            Query<Products> query = session.createQuery(hql, Products.class);
+            query.setParameter("categoryId", categoryId);
+            products = query.getResultList();
+
+            // Commit the transaction
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+
+        return products;
+    }
+
 }

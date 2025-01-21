@@ -104,7 +104,7 @@
                             <ul class="list-unstyled">
                                 <li><a href="products-save" class="btn btn-block">Add Product</a></li>
                                 <li><a href="products-all" class="btn btn-block">View Products</a></li>
-                                <li><a href="products-update.jsp" class="btn btn-block">Update Product</a></li>
+                                <li><a href="products-update" class="btn btn-block">Update Product</a></li>
                                 <li><a href="products-delete.jsp" class="btn btn-block btn-danger">Delete Product</a></li>
                             </ul>
                         </div>

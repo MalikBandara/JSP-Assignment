@@ -53,4 +53,25 @@ public class ProductsBoImpl implements ProductsBo {
         return productDtoList;
 
     }
+
+    @Override
+    public List<ProductsDto> getProductByCategoryId(String categoryId) {
+        List<Products> productsByCategory = productsDao.getProductsByCategory(categoryId);
+
+        List<ProductsDto> productsDtos = new ArrayList<>();
+
+        for (Products products : productsByCategory){
+            ProductsDto productsDto = new ProductsDto();
+            productsDto.setPid(products.getPid());
+            productsDto.setName(products.getName());
+            productsDto.setCategory(products.getCategory());
+            productsDto.setQty(products.getQty());
+            productsDto.setPrice(products.getPrice());
+            productsDto.setImage(products.getImage());
+
+            productsDtos.add(productsDto);
+
+        }
+        return productsDtos;
+    }
 }

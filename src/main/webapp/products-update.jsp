@@ -1,15 +1,18 @@
-<%--
+<%@ page import="org.example.assignment_jsp.dto.CategoryDto" %>
+<%@ page import="java.util.List" %>
+<%@ page import="org.example.assignment_jsp.Entity.Category" %><%--
   Created by IntelliJ IDEA.
   User: Win10-LL
   Date: 1/20/2025
-  Time: 10:57 AM
+  Time: 9:07 AM
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Product Update Page</title>
+    <title>Product update Page</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -31,6 +34,7 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+
 <div class="row align-items-center py-3 px-xl-5">
     <div class="col-lg-3 d-none d-lg-block">
         <a href="AdminDash.jsp" class="text-decoration-none">
@@ -45,7 +49,7 @@
         <div class="col-lg-6 col-md-8 col-sm-10">
             <div class="card shadow p-4">
                 <h3 class="text-center mb-4">Update Product</h3>
-                <form action="products-update" method="post">
+                <form action="products-update" method="post" enctype="multipart/form-data">
 
                     <div class="mb-3">
                         <label for="id" class="form-label">Product ID</label>
@@ -61,16 +65,38 @@
                         <input type="text" id="price" class="form-control" name="price">
                     </div>
                     <div class="mb-3">
-                        <label for="qty" class="form-label">Quantity</label>
+                        <label for="qry" class="form-label">Quantity</label>
                         <input type="text" id="qry"  class="form-control" name="qty">
                     </div>
+
                     <div class="mb-3">
-                        <label for="productImage" class="form-label">Product Image</label>
-                        <input type="file" id="productImage" accept="image/*" required>
-                        <input type="hidden" id="imageHiddenField" name="productImage">
+                        <label for="category" class="form-label">Category</label>
+                        <select id="category" name="category" class="form-control">
+                            <%
+                                List<CategoryDto> categories = (List<CategoryDto>) request.getAttribute("categories");
+                                if (categories != null && !categories.isEmpty()) {
+                                    for (CategoryDto category : categories) {
+                            %>
+                            <option value="<%= category.getCid() %>"><%= category.getCname() %></option>
+                            <%
+                                }
+                            } else {
+                            %>
+                            <option disabled>No categories available</option>
+                            <%
+                                }
+                            %>
+
+                        </select>
                     </div>
 
-                    <button type="submit" class="btn btn-primary w-100">Update Product</button>
+
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image</label>
+                        <input type="file" class="form-control" id="image" placeholder="Input image" name="product_img">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">update Product</button>
                 </form>
             </div>
 
@@ -81,28 +107,12 @@
 </div>
 
 
-<%--<form action="products-update" method="post">--%>
-
-<%--    <label for="id">id:</label><br>--%>
-<%--    <input type="text" id="id" name="id"><br><br>--%>
-
-<%--    <label for="name">name:</label><br>--%>
-<%--    <input type="text" id="name" name="name"> <br><br>--%>
-
-<%--    <label for="price">price:</label><br>--%>
-<%--    <input type="text" id="price" name="price"><br><br>--%>
-
-<%--    <label for="qty">qty:</label><br>--%>
-<%--    <input type="text" id="qry" name="qty"><br><br>--%>
-
-<%--    <input type="file" id="productImage" accept="image/*" required>--%>
-<%--    <input type="hidden" id="imageHiddenField" name="productImage">--%>
-
-<%--    <button type="submit">save prd</button>--%>
-<%--</form>--%>
-
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </body>
 </html>
+
+
+

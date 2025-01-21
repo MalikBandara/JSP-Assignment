@@ -9,44 +9,38 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.example.assignment_jsp.BoLayer.Bo.ProductsBo;
 import org.example.assignment_jsp.BoLayer.BoFactory;
 import org.example.assignment_jsp.BoLayer.BoType;
-import org.example.assignment_jsp.Entity.Products;
-import org.example.assignment_jsp.config.SessionFactoryConfiguration;
 import org.example.assignment_jsp.dto.ProductsDto;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name ="ViewAllProductsServlet" , value ="/products-all")
 
-public class ViewAllProductsServlet extends HttpServlet {
+@WebServlet(name = "ViewAllMensProducts" , value = "/MensProducts")
+public class ViewAllMensProducts extends HttpServlet {
 
     ProductsBo productsBo = (ProductsBo) BoFactory.getBoFactory().getBo(BoType.PRODUCT);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        // Use ProductsBo to get the DTO list
-        List<ProductsDto> allProducts = productsBo.getAllProducts();
+        String categoryId = "1" ; // Men's products category ID
+        List<ProductsDto> mensT = productsBo.getProductByCategoryId(categoryId);
 
         System.out.println("Retrieved Products: ");
-        for (ProductsDto product : allProducts) {
+        for (ProductsDto product : mensT) {
             System.out.println("ID: " + product.getPid() +
                     ", Name: " + product.getName() +
                     ", Price: " + product.getPrice() +
                     ", Quantity: " + product.getQty() +
-                    ", Image: " + product.getImage() +
-                    ", Category ID: " + (product.getCategory() != null ? product.getCategory().getCname() : "No Category"));
+                    ", Image: " + product.getImage());
         }
 
 
         // Set the DTO list as a request attribute
-        req.setAttribute("products", allProducts);
+        req.setAttribute("products", mensT);
 
         // Forward the request to the JSP page
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("products-all.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("MensProducts.jsp");
         requestDispatcher.forward(req, resp);
-
     }
 }
+
