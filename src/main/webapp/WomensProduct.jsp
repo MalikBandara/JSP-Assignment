@@ -121,14 +121,20 @@
             <img src="<%= product.getImage() %>" alt="<%= product.getName() %>">
             <div class="product-info">
                 <h5><%= product.getName() %></h5>
-                <p>Quantity: <%= product.getQty() %></p>
+                <p>Quantity Available: <%= product.getQty() %></p>
                 <p class="price">Price: $<%= product.getPrice() %></p>
                 <form action="AddToCartServlet" method="post">
                     <input type="hidden" name="productId" value="<%= product.getPid() %>">
+                    <div class="mb-2">
+                        <label for="quantity_<%= product.getPid() %>" class="form-label">Quantity:</label>
+                        <input type="number" name="quantity" id="quantity_<%= product.getPid() %>" class="form-control"
+                               min="1" max="<%= product.getQty() %>" value="1" required>
+                    </div>
                     <button type="submit" class="btn btn-add-to-cart">Add to Cart</button>
                 </form>
             </div>
         </div>
+
         <% } %>
     </div>
 
