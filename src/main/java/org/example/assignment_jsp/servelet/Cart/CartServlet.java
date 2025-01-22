@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.example.assignment_jsp.BoLayer.Bo.CartBo;
 import org.example.assignment_jsp.BoLayer.Bo.ProductsBo;
 import org.example.assignment_jsp.BoLayer.Bo.UserBo;
 import org.example.assignment_jsp.BoLayer.BoFactory;
@@ -13,6 +14,7 @@ import org.example.assignment_jsp.Entity.Cart;
 import org.example.assignment_jsp.Entity.Products;
 import org.example.assignment_jsp.Entity.User;
 import org.example.assignment_jsp.config.SessionFactoryConfiguration;
+import org.example.assignment_jsp.dto.CartDto;
 import org.example.assignment_jsp.dto.ProductsDto;
 import org.example.assignment_jsp.dto.UserDto;
 import org.hibernate.Session;
@@ -29,6 +31,8 @@ public class CartServlet extends HttpServlet {
     ProductsBo productsBo = (ProductsBo) BoFactory.getBoFactory().getBo(BoType.PRODUCT);
 
     UserBo userBo = (UserBo) BoFactory.getBoFactory().getBo(BoType.USER);
+
+    CartBo cartBo = (CartBo) BoFactory.getBoFactory().getBo(BoType.CART);
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -53,9 +57,11 @@ public class CartServlet extends HttpServlet {
 
             Cart cart = new Cart(0, products, user, itemPrice, orderQuantity, totalPrice);
 
-            Session session = SessionFactoryConfiguration.getInstance().getSession();
-            Transaction transaction   = session.beginTransaction();
-            session.save(cart);
+            CartDto cartDto = new CartDto(cart.getCartId(),cart.getProduct(),cart.getUser(),cart.getItemPrice(),cart.getOrderedQuantity(),cart.getTotalPrice());
+
+            ProductsDto productsDto = new ProductsDto(products.getPid(), products.getName(), products.getQty(), products.getPrice(), products.getImage(), products.getCategory());
+
+            cartBo.saveCart(cartDto);
 
             String productQty = products.getQty();
             System.out.println(productQty);
@@ -64,18 +70,14 @@ public class CartServlet extends HttpServlet {
             int oldQty = Integer.parseInt(productQty);
 
             if (oldQty >= orderQty) {
+
                 int updatedQuantity = oldQty - orderQty;
-                products.setQty(String.valueOf(updatedQuantity));  // Set the updated quantity
-                session.update(products);  // Update the product record in the database
-                transaction.commit();
+                productsDto.setQty(String.valueOf(updatedQuantity));  // Set the updated quantity
+                productsBo.updateProducts(productsDto);
                 System.out.println("Product quantity updated successfully.");
             } else {
                 System.out.println("Insufficient stock available.");
             }
-
-
-
-
         }catch (Exception e ){
             e.printStackTrace();
         }
