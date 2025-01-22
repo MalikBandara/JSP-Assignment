@@ -101,8 +101,19 @@
 </head>
 <body>
 
+<div class="row align-items-center py-3 px-xl-5">
+    <div class="col-lg-3 d-none d-lg-block">
+        <a href="index.jsp" class="text-decoration-none">
+            <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">Home</span>Page</h1>
+        </a>
+    </div>
+
+</div>
+
 <div class="container">
     <h2>Women's Clothing's</h2>
+
+
 
     <%
         // Retrieve the list of products from the request attribute
@@ -123,7 +134,7 @@
                 <br>
                 <div style="display: flex; align-items: center; gap: 10px;">
                     <h5>Product ID:</h5>
-                    <h5 id="productId"><%= product.getPid() %></h5>
+                    <h5 ><%= product.getPid() %></h5>
                 </div>
                 <br>
                 <h5><%= product.getName() %></h5>
@@ -135,20 +146,7 @@
                     <h5 class="price" id="ItemPrice"><%= product.getPrice() %></h5>
                 </div>
                 <br>
-                <form action="" method="post">
-                    <input type="hidden" name="productId" value="<%= product.getPid() %>">
-                    <div class="mb-2">
 
-                            <label for="Quantity" class="form-label">Order Your Quantity : </label>
-                            <input type="text" class="form-control" id="Quantity" name="Customer" placeholder="" required>
-
-                    </div>
-                    <div class="mb-3">
-                        <label for="user" class="form-label">Input Your I'd : </label>
-                        <input type="text" class="form-control" id="user" name="user" placeholder="" required>
-                    </div>
-                    <button type="button" class="btn btn-add-to-cart" id="AddCart">Add to Cart</button>
-                </form>
             </div>
         </div>
 

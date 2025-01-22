@@ -3,7 +3,7 @@ $("#AddCart").click(function (){
   var ItemPrice = $("#ItemPrice").text();
   var OrderQuantity = $("#Quantity").val();
   var totalPrice = ItemPrice * OrderQuantity;
-  var productId = $("#productId").text();
+  var productId = $("#productId").val();
   var userid = $("#user").val();
 
   console.log("Product ID:", productId);

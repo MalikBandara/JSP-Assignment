@@ -13,15 +13,11 @@ import org.example.assignment_jsp.BoLayer.BoType;
 import org.example.assignment_jsp.Entity.Cart;
 import org.example.assignment_jsp.Entity.Products;
 import org.example.assignment_jsp.Entity.User;
-import org.example.assignment_jsp.config.SessionFactoryConfiguration;
 import org.example.assignment_jsp.dto.CartDto;
 import org.example.assignment_jsp.dto.ProductsDto;
 import org.example.assignment_jsp.dto.UserDto;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-
 import java.io.IOException;
-import java.util.List;
+
 
 
 @WebServlet(urlPatterns = "/cart/*")
