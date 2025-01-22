@@ -120,6 +120,8 @@
         <div class="product-card">
             <img src="<%= product.getImage() %>" alt="<%= product.getName() %>">
             <div class="product-info">
+                <br>
+                <h5> Product id : <%= product.getPid() %></h5>
                 <h5><%= product.getName() %></h5>
                 <p>Quantity Available: <%= product.getQty() %></p>
                 <p class="price">Price: $<%= product.getPrice() %></p>
@@ -129,6 +131,10 @@
                         <label for="quantity_<%= product.getPid() %>" class="form-label">Quantity:</label>
                         <input type="number" name="quantity" id="quantity_<%= product.getPid() %>" class="form-control"
                                min="1" max="<%= product.getQty() %>" value="1" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Customer" class="form-label">Input Your Id : </label>
+                        <input type="text" class="form-control" id="Customer" name="Customer" placeholder="Enter your customerID" required>
                     </div>
                     <button type="submit" class="btn btn-add-to-cart">Add to Cart</button>
                 </form>

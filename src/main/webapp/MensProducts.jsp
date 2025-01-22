@@ -120,6 +120,8 @@
         <div class="product-card">
             <img src="<%= product.getImage() %>" alt="<%= product.getName() %>">
             <div class="product-info">
+                <br>
+                <h5> Product id : <%= product.getPid() %></h5>
                 <h5><%= product.getName() %></h5>
                 <p>Quantity: <%= product.getQty() %></p>
                 <p class="price">Price: $<%= product.getPrice() %></p>
