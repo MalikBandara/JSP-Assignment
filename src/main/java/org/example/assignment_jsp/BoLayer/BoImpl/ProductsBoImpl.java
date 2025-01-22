@@ -74,4 +74,11 @@ public class ProductsBoImpl implements ProductsBo {
         }
         return productsDtos;
     }
+
+    @Override
+    public ProductsDto getProductId(String id) {
+        Products productId = productsDao.getProductId(id);
+        ProductsDto productsDto = new ProductsDto(productId.getPid(), productId.getName(), productId.getQty(), productId.getPrice(), productId.getImage(), productId.getCategory());
+        return productsDto;
+    }
 }

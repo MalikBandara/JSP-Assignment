@@ -42,4 +42,13 @@ public class UserBoImpl implements UserBo {
         }
         return userDtos;
     }
+
+    @Override
+    public UserDto getUserId(String userid) {
+        User userId = userDao.getUserId(userid);
+        UserDto userDto = new UserDto(userId.getUserId(), userId.getUserName(), userId.getEmail(), userId.getPassword(), userId.isActive(), userId.getRole(), userId.getCreatedAt());
+        return userDto;
+
+
+    }
 }

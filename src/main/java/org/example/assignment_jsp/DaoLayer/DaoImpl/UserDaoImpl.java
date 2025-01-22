@@ -2,6 +2,7 @@ package org.example.assignment_jsp.DaoLayer.DaoImpl;
 
 import org.example.assignment_jsp.DaoLayer.Dao.UserDao;
 import org.example.assignment_jsp.Entity.Category;
+import org.example.assignment_jsp.Entity.Products;
 import org.example.assignment_jsp.Entity.User;
 import org.example.assignment_jsp.config.SessionFactoryConfiguration;
 import org.hibernate.Session;
@@ -173,6 +174,26 @@ public class UserDaoImpl implements UserDao {
             }
         }
         return role;
+    }
+
+    @Override
+    public User getUserId(String userid) {
+        try {
+            Session session = SessionFactoryConfiguration.getInstance().getSession();
+            Transaction transaction = session.beginTransaction();
+
+            String hql = "FROM User WHERE userId = :userid";
+            Query<User> query = session.createQuery(hql, User.class);
+            query.setParameter("userid" , userid);
+
+            User user = query.uniqueResult();
+
+            transaction.commit();
+            return user;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
 }

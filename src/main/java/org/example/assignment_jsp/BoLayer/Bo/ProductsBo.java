@@ -15,4 +15,6 @@ public interface ProductsBo extends SuperBo {
     List<ProductsDto> getAllProducts();
 
     List<ProductsDto> getProductByCategoryId(String categoryId);
+
+    ProductsDto getProductId(String id);
 }

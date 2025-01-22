@@ -14,4 +14,6 @@ public interface UserBo extends SuperBo {
     public String getUserRole(String email);
 
     List<UserDto> getAllUsers();
+
+    UserDto getUserId(String userid);
 }

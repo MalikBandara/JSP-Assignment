@@ -8,4 +8,5 @@ import java.util.List;
 public interface ProductsDao extends CrudDao<Products> {
     List<Products> getProductsByCategory(String categoryId);
 
+    Products getProductId(String id);
 }

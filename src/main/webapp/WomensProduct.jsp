@@ -121,22 +121,29 @@
             <img src="<%= product.getImage() %>" alt="<%= product.getName() %>">
             <div class="product-info">
                 <br>
-                <h5> Product id : <%= product.getPid() %></h5>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <h5>Product ID:</h5>
+                    <h5 id="productId"><%= product.getPid() %></h5>
+                </div>
                 <h5><%= product.getName() %></h5>
                 <p>Quantity Available: <%= product.getQty() %></p>
-                <p class="price">Price: $<%= product.getPrice() %></p>
-                <form action="AddToCartServlet" method="post">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <h5>Product Price:</h5>
+                    <h5 class="price" id="ItemPrice"><%= product.getPrice() %></h5>
+                </div>
+                <form action="" method="post">
                     <input type="hidden" name="productId" value="<%= product.getPid() %>">
                     <div class="mb-2">
-                        <label for="quantity_<%= product.getPid() %>" class="form-label">Quantity:</label>
-                        <input type="number" name="quantity" id="quantity_<%= product.getPid() %>" class="form-control"
-                               min="1" max="<%= product.getQty() %>" value="1" required>
+
+                            <label for="Quantity" class="form-label">Order Your Quantity : </label>
+                            <input type="text" class="form-control" id="Quantity" name="Customer" placeholder="" required>
+
                     </div>
                     <div class="mb-3">
-                        <label for="Customer" class="form-label">Input Your Id : </label>
-                        <input type="text" class="form-control" id="Customer" name="Customer" placeholder="Enter your customerID" required>
+                        <label for="user" class="form-label">Input Your I'd : </label>
+                        <input type="text" class="form-control" id="user" name="user" placeholder="" required>
                     </div>
-                    <button type="submit" class="btn btn-add-to-cart">Add to Cart</button>
+                    <button type="button" class="btn btn-add-to-cart" id="AddCart">Add to Cart</button>
                 </form>
             </div>
         </div>
@@ -152,8 +159,10 @@
 
 </div>
 
+<script src="libb/jquery-3.7.1.min.js"></script>
 <!-- Bootstrap 5 JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
+<script src="cart.js"></script>
 </body>
 </html>

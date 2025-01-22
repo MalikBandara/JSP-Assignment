@@ -139,4 +139,27 @@ public class ProductsDaoImpl implements ProductsDao {
         return products;
     }
 
+    @Override
+    public Products getProductId(String id) {
+        try {
+            Session session = SessionFactoryConfiguration.getInstance().getSession();
+            Transaction transaction = session.beginTransaction();
+
+            System.out.println("Fetching product with ID: " + id);
+
+
+            String hql = "FROM Products WHERE pid = :id";
+            Query<Products> query = session.createQuery(hql, Products.class);
+            query.setParameter("id" , id);
+
+            Products products = query.uniqueResult();
+
+            transaction.commit();
+            return products;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }
