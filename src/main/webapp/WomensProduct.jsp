@@ -125,12 +125,16 @@
                     <h5>Product ID:</h5>
                     <h5 id="productId"><%= product.getPid() %></h5>
                 </div>
+                <br>
                 <h5><%= product.getName() %></h5>
-                <p>Quantity Available: <%= product.getQty() %></p>
+                <br>
+                <h5 style="color: #1c7430">Quantity Available: <%= product.getQty() %></h5>
+                <br>
                 <div style="display: flex; align-items: center; gap: 10px;">
                     <h5>Product Price:</h5>
                     <h5 class="price" id="ItemPrice"><%= product.getPrice() %></h5>
                 </div>
+                <br>
                 <form action="" method="post">
                     <input type="hidden" name="productId" value="<%= product.getPid() %>">
                     <div class="mb-2">

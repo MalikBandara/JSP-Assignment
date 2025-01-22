@@ -45,7 +45,7 @@ public class CartServlet extends HttpServlet {
 
             ProductsDto productId = productsBo.getProductId(id);
 
-            Products products = new Products(productId.getPid(), productId.getName(), productId.getQty(), productId.getPrice(), productId.getQty(), productId.getCategory());
+            Products products = new Products(productId.getPid(), productId.getName(), productId.getQty(), productId.getPrice(), productId.getImage(), productId.getCategory());
 
             UserDto userId = userBo.getUserId(userid);
 
@@ -56,7 +56,24 @@ public class CartServlet extends HttpServlet {
             Session session = SessionFactoryConfiguration.getInstance().getSession();
             Transaction transaction   = session.beginTransaction();
             session.save(cart);
-            transaction.commit();
+
+            String productQty = products.getQty();
+            System.out.println(productQty);
+
+            int orderQty = Integer.parseInt(orderQuantity);
+            int oldQty = Integer.parseInt(productQty);
+
+            if (oldQty >= orderQty) {
+                int updatedQuantity = oldQty - orderQty;
+                products.setQty(String.valueOf(updatedQuantity));  // Set the updated quantity
+                session.update(products);  // Update the product record in the database
+                transaction.commit();
+                System.out.println("Product quantity updated successfully.");
+            } else {
+                System.out.println("Insufficient stock available.");
+            }
+
+
 
 
         }catch (Exception e ){
