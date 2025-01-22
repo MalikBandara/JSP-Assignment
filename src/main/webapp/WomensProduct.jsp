@@ -132,10 +132,9 @@
             <img src="<%= product.getImage() %>" alt="<%= product.getName() %>">
             <div class="product-info">
                 <br>
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <h5>Product ID:</h5>
-                    <h5 ><%= product.getPid() %></h5>
-                </div>
+                <h5>Product ID:</h5>
+                <br>
+                <h5 class="productId" ><%= product.getPid() %></h5>
                 <br>
                 <h5><%= product.getName() %></h5>
                 <br>
@@ -143,9 +142,23 @@
                 <br>
                 <div style="display: flex; align-items: center; gap: 10px;">
                     <h5>Product Price:</h5>
-                    <h5 class="price" id="ItemPrice"><%= product.getPrice() %></h5>
+                    <h5  class="ItemPrice"><%= product.getPrice() %></h5>
                 </div>
                 <br>
+                <div class="mb-3">
+                    <label class="form-label">Quantity ordered</label>
+                    <input type="text" class="form-control Quantity"  placeholder="">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">User id </label>
+                    <input type="text" class="form-control user"  placeholder="">
+                </div>
+
+                <button type="button" style="background-color:#b58480 " class="AddCart"
+                        data-product-id="<%= product.getPid() %>"
+                        data-item-price="<%= product.getPrice() %>"
+                        data-quantity-available="<%= product.getQty() %>">Save Category</button>
 
             </div>
         </div>
