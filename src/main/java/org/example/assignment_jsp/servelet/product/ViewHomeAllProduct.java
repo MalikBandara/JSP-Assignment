@@ -15,14 +15,14 @@ import java.io.IOException;
 import java.util.List;
 
 
-@WebServlet(name = "BabyProductServlet" , value = "/BabyProductsAll")
-public class BabyProductServlet extends HttpServlet {
+@WebServlet(name = "ViewHomeAllProduct" , value = "/WomensProductsHome")
 
+public class ViewHomeAllProduct extends HttpServlet {
     ProductsBo productsBo = (ProductsBo) BoFactory.getBoFactory().getBo(BoType.PRODUCT);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String categoryId = "3" ; // Men's products category ID
+        String categoryId = "2" ; // Men's products category ID
         List<ProductsDto> mensT = productsBo.getProductByCategoryId(categoryId);
 
         System.out.println("Retrieved Products: ");
@@ -39,7 +39,7 @@ public class BabyProductServlet extends HttpServlet {
         req.setAttribute("products", mensT);
 
         // Forward the request to the JSP page
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("BabyProductsAll.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("WomensProductsHome.jsp");
         requestDispatcher.forward(req, resp);
     }
 }

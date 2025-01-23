@@ -15,9 +15,8 @@ import java.io.IOException;
 import java.util.List;
 
 
-@WebServlet(name = "BabyProductServlet" , value = "/BabyProductsAll")
-public class BabyProductServlet extends HttpServlet {
-
+@WebServlet(name = "BabyProductHome" , value = "/BabyProducts")
+public class BabyProductHome extends HttpServlet {
     ProductsBo productsBo = (ProductsBo) BoFactory.getBoFactory().getBo(BoType.PRODUCT);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -39,7 +38,7 @@ public class BabyProductServlet extends HttpServlet {
         req.setAttribute("products", mensT);
 
         // Forward the request to the JSP page
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("BabyProductsAll.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("BabyProducts.jsp");
         requestDispatcher.forward(req, resp);
     }
 }

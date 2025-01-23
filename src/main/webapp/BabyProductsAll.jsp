@@ -103,7 +103,7 @@
 
 <div class="row align-items-center py-3 px-xl-5">
     <div class="col-lg-3 d-none d-lg-block">
-        <a href="index.jsp" class="text-decoration-none">
+        <a href="UserDashBoard.jsp" class="text-decoration-none">
             <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">Home</span>Page</h1>
         </a>
     </div>
@@ -111,7 +111,9 @@
 </div>
 
 <div class="container">
-    <h2>Mens Clothing's</h2>
+    <h2>Women's Clothing's</h2>
+
+
 
     <%
         // Retrieve the list of products from the request attribute
@@ -130,16 +132,37 @@
             <img src="<%= product.getImage() %>" alt="<%= product.getName() %>">
             <div class="product-info">
                 <br>
-                <h5> Product id : <%= product.getPid() %></h5>
+                <h5>Product ID:</h5>
+                <br>
+                <h5 class="productId" ><%= product.getPid() %></h5>
+                <br>
                 <h5><%= product.getName() %></h5>
-                <p>Quantity: <%= product.getQty() %></p>
-                <p class="price">Price: $<%= product.getPrice() %></p>
-                <form action="AddToCartServlet" method="post">
-                    <input type="hidden" name="productId" value="<%= product.getPid() %>">
+                <br>
+                <h5 style="color: #1c7430">Quantity Available: <%= product.getQty() %></h5>
+                <br>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <h5>Product Price:</h5>
+                    <h5  class="ItemPrice"><%= product.getPrice() %></h5>
+                </div>
+                <br>
+                <div class="mb-3">
+                    <label class="form-label">Quantity ordered</label>
+                    <input type="text" class="form-control Quantity"  placeholder="">
+                </div>
 
-                </form>
+                <div class="mb-3">
+                    <label class="form-label">User id </label>
+                    <input type="text" class="form-control user"  placeholder="">
+                </div>
+
+                <button type="button" style="background-color: #D19C97; color: black; border: none; padding: 10px 20px; border-radius: 8px; font-size: 16px; cursor: pointer;  transition: background-color 0.3s ease;" class="AddCart"
+                        data-product-id="<%= product.getPid() %>"
+                        data-item-price="<%= product.getPrice() %>"
+                        data-quantity-available="<%= product.getQty() %>">Save Category</button>
+
             </div>
         </div>
+
         <% } %>
     </div>
 
@@ -151,8 +174,10 @@
 
 </div>
 
+<script src="libb/jquery-3.7.1.min.js"></script>
 <!-- Bootstrap 5 JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
+<script src="cart.js"></script>
 </body>
 </html>
