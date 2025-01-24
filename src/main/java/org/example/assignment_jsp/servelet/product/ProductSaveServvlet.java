@@ -87,10 +87,10 @@ public class ProductSaveServvlet extends HttpServlet {
         boolean b = productsBo.saveProducts(products);
 
         if (b) {
-//            req.getSession().setAttribute("registrationStatus", "success");
-            resp.sendRedirect("products-save.jsp");
+            req.getSession().setAttribute("registrationStatus", "success");
+            resp.sendRedirect("products-save");
         } else {
-//            req.getSession().setAttribute("registrationStatus", "error");
+            req.getSession().setAttribute("registrationStatus", "error");
             resp.sendRedirect("AdminDash.jsp");
         }
 
