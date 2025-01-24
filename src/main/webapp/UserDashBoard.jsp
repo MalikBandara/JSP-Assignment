@@ -78,7 +78,7 @@
         </div>
         <div class="col-lg-3 col-6 text-right">
             <p>Click hear to show the cart items</p>
-            <a href="cart" class="btn border">
+            <a href="MyCurt" class="btn border">
                 <i class="fas fa-shopping-cart text-primary"></i>
                 <span class="badge">0</span>
             </a>

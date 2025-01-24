@@ -15,7 +15,7 @@ $(".AddCart").click(function () {
     console.log("Product ID:", productId);
 
     $.ajax({
-        url: "http://localhost:8080/ASSIGNMENT_JSP_war_exploded/cart",
+        url: "http://localhost:8082/ASSIGNMENT_JSP_war/cart",
         method: "POST",
         data: {
             ItemPrice: itemPrice,

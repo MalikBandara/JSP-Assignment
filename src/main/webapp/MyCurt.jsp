@@ -10,6 +10,8 @@
     <meta content="Free HTML Templates" name="description">
     <title>Product View Page</title>
 
+
+
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
@@ -90,7 +92,7 @@
 
 <div class="row align-items-center py-3 px-xl-5">
     <div class="col-lg-3 d-none d-lg-block">
-        <a href="AdminDash.jsp" class="text-decoration-none">
+        <a href="UserDashBoard.jsp" class="text-decoration-none">
             <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">Admin</span>Page</h1>
         </a>
     </div>
@@ -134,14 +136,19 @@
                 <td><%= cartDto.getProduct().getPid() %></td>
                 <td><%= cartDto.getUser().getUserId() %></td>
                 <td>
-                    <form action="PlaceOrderServlet" method="post">
-                        <!-- Pass the cart ID as a hidden field -->
-                        <input type="hidden" name="cartId" value="<%= cartDto.getCartId() %>">
-                        <button type="button" class="btn btn-success btn-sm placeOrder">
-                            <i class="fas fa-shopping-cart"></i> Place Order
-                        </button>
-                    </form>
+                    <button
+                            type="button"
+                            class="btn btn-success btn-sm placeOrder"
+                            data-cart-id="<%= cartDto.getCartId() %>"
+                            data-item-price="<%= cartDto.getItemPrice() %>"
+                            data-ordered-quantity="<%= cartDto.getOrderedQuantity() %>"
+                            data-total-price="<%= cartDto.getTotalPrice() %>"
+                            data-product-id="<%= cartDto.getProduct().getPid() %>"
+                            data-user-id="<%= cartDto.getUser().getUserId() %>">
+                        <i class="fas fa-shopping-cart"></i> Place Order
+                    </button>
                 </td>
+
             </tr>
             <%
                 }
@@ -158,11 +165,11 @@
     <% } %>
 
 </div>
-
+<script src="./libb/jquery-3.7.1.min.js"></script>
 
 <script src="placeOrder.js"></script>
 
-<script src="./libb/jquery-3.7.1.min.js"></script>
+
 
 <!-- Bootstrap 5 JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

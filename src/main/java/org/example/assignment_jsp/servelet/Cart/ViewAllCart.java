@@ -14,7 +14,7 @@ import org.example.assignment_jsp.dto.CartDto;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ViewAllCart" , value = "/cart")
+@WebServlet(name = "ViewAllCart" , value = "/MyCurt")
 
 public class ViewAllCart extends HttpServlet {
 
@@ -27,7 +27,7 @@ public class ViewAllCart extends HttpServlet {
         req.setAttribute("carts", allCart);
 
         // Forward the request to the JSP page
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("cart.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("MyCurt.jsp");
         requestDispatcher.forward(req, resp);
     }
 }
