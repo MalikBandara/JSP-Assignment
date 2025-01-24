@@ -43,10 +43,10 @@ public class CategorySaveServelet extends HttpServlet {
         boolean b = categoryBo.saveCategory(categoryDto);
 
         if (b) {
-//            req.getSession().setAttribute("registrationStatus", "success");
+            req.getSession().setAttribute("registrationStatus", "success");
             resp.sendRedirect("category-save.jsp");
         } else {
-//            req.getSession().setAttribute("registrationStatus", "error");
+            req.getSession().setAttribute("registrationStatus", "error");
             resp.sendRedirect("AdminDash.jsp");
         }
 

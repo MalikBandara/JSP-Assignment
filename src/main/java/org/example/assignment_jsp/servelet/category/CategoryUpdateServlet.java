@@ -30,10 +30,10 @@ public class CategoryUpdateServlet extends HttpServlet {
         boolean b = categoryBo.UpdateCategory(categoryDto);
 
         if (b) {
-//            req.getSession().setAttribute("registrationStatus", "success");
+          req.getSession().setAttribute("registrationStatus", "success");
             resp.sendRedirect("category-update.jsp");
         } else {
-//            req.getSession().setAttribute("registrationStatus", "error");
+           req.getSession().setAttribute("registrationStatus", "error");
             resp.sendRedirect("AdminDash.jsp");
         }
 
