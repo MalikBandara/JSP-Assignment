@@ -144,10 +144,13 @@
                             data-ordered-quantity="<%= cartDto.getOrderedQuantity() %>"
                             data-total-price="<%= cartDto.getTotalPrice() %>"
                             data-product-id="<%= cartDto.getProduct().getPid() %>"
-                            data-user-id="<%= cartDto.getUser().getUserId() %>">
+                            data-user-id="<%= cartDto.getUser().getUserId() %>"
+                            data-bs-toggle="modal"
+                            data-bs-target="#paymentModal">
                         <i class="fas fa-shopping-cart"></i> Place Order
                     </button>
                 </td>
+
 
             </tr>
             <%
@@ -165,6 +168,39 @@
     <% } %>
 
 </div>
+<!-- Payment Modal -->
+<div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="paymentModalLabel">Select Payment Method</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="paymentForm">
+                    <div class="mb-3">
+                        <label for="paymentMethod" class="form-label">Payment Method</label>
+                        <select class="form-select" id="paymentMethod" required>
+                            <option value="cash">Cash</option>
+                            <option value="card">Card</option>
+                        </select>
+                    </div>
+                    <input type="hidden" id="modalCartId">
+                    <input type="hidden" id="modalItemPrice">
+                    <input type="hidden" id="modalOrderedQuantity">
+                    <input type="hidden" id="modalTotalPrice">
+                    <input type="hidden" id="modalProductId">
+                    <input type="hidden" id="modalUserId">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="confirmPayment">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="./libb/jquery-3.7.1.min.js"></script>
 
 <script src="placeOrder.js"></script>

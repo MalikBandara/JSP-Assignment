@@ -36,6 +36,9 @@ public class PlaceOrder {
     @Column(name = "total_price", nullable = false)
     private String totalPrice; // Total price for the order
 
+    @Column(name = "payment_method", nullable = false)
+    private String paymentMethod; // Payment method (e.g., Cash, Card)
+
     @ManyToOne
     @JoinColumn(name = "product_id", referencedColumnName = "pid", nullable = false)
     private Products product; // Reference to the Products entity
