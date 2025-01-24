@@ -62,13 +62,7 @@
                     </div>
 
                     <!-- Role Selection Dropdown -->
-                    <div class="mb-3">
-                        <label for="role" class="form-label">Select Role</label>
-                        <select class="form-control" id="role" name="role" required>
-                            <option value="Customer">Customer</option>
-                            <option value="Admin">Admin</option>
-                        </select>
-                    </div>
+
 
                     <!-- Submit Button -->
                     <div class="d-grid">
