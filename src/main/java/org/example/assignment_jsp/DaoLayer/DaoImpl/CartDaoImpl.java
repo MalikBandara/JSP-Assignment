@@ -3,6 +3,7 @@ package org.example.assignment_jsp.DaoLayer.DaoImpl;
 import org.example.assignment_jsp.DaoLayer.Dao.CartDao;
 import org.example.assignment_jsp.Entity.Cart;
 import org.example.assignment_jsp.Entity.Category;
+import org.example.assignment_jsp.Entity.PlaceOrder;
 import org.example.assignment_jsp.Entity.Products;
 import org.example.assignment_jsp.config.SessionFactoryConfiguration;
 import org.hibernate.Session;
@@ -37,7 +38,19 @@ public class CartDaoImpl implements CartDao {
 
     @Override
     public boolean delete(String id) {
-        return false;
+        try {
+
+            Session session = SessionFactoryConfiguration.getInstance().getSession();
+            Transaction transaction = session.beginTransaction();
+            Cart cart = session.get(Cart.class, id);
+            session.delete(cart);
+            transaction.commit();
+            session.close();
+            return true;
+        }catch (Exception e ){
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override

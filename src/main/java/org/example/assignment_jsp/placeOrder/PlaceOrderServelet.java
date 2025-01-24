@@ -5,7 +5,12 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.example.assignment_jsp.BoLayer.Bo.CartBo;
+import org.example.assignment_jsp.BoLayer.Bo.PlaceOrderBo;
+import org.example.assignment_jsp.BoLayer.BoFactory;
+import org.example.assignment_jsp.BoLayer.BoType;
 import org.example.assignment_jsp.Entity.PlaceOrder;
+import org.example.assignment_jsp.Entity.PlaceOrderDto;
 import org.example.assignment_jsp.Entity.Products;
 import org.example.assignment_jsp.Entity.User;
 import org.example.assignment_jsp.config.SessionFactoryConfiguration;
@@ -17,6 +22,11 @@ import java.time.LocalDateTime;
 
 @WebServlet(urlPatterns = "/placeorder/*")
 public class PlaceOrderServelet extends HttpServlet {
+
+    PlaceOrderBo placeOrderBo = (PlaceOrderBo) BoFactory.getBoFactory().getBo(BoType.PLACEORDER);
+
+    CartBo cartBo = (CartBo) BoFactory.getBoFactory().getBo(BoType.CART);
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/json");
@@ -53,7 +63,7 @@ public class PlaceOrderServelet extends HttpServlet {
         Transaction transaction = null;
 
         try {
-            transaction = session.beginTransaction();
+
 
             // Fetch product and user entities
             Products product = session.get(Products.class, productId); // productId is now String
@@ -75,11 +85,20 @@ public class PlaceOrderServelet extends HttpServlet {
             placeOrder.setProduct(product);
             placeOrder.setUser(user);
 
-            session.save(placeOrder);
-            transaction.commit();
+            PlaceOrderDto placeOrderDto = new PlaceOrderDto(placeOrder.getOrderId(), placeOrder.getOrderDate(), placeOrder.getOrderedQuantity(), placeOrder.getItemPrice(), placeOrder.getStatus(), placeOrder.getTotalPrice(), placeOrder.getPaymentMethod(), placeOrder.getProduct(), placeOrder.getUser());
 
-            resp.setStatus(HttpServletResponse.SC_OK);
-            resp.getWriter().write("{\"message\": \"Order placed successfully!\"}");
+
+            boolean b = placeOrderBo.saveOrder(placeOrderDto);
+
+
+
+            if (b){
+                boolean b1 = cartBo.deleteCart(cartId);
+                System.out.println(" cart deleted : "+ b1);
+
+            }
+
+            resp.sendRedirect("UserDashBoard.jsp");
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
             resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);

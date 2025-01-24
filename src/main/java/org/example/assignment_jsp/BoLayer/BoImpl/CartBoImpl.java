@@ -37,4 +37,9 @@ public class CartBoImpl implements CartBo {
         }
         return cartDtos;
     }
+
+    @Override
+    public boolean deleteCart(String cartId) {
+       return cartDao.delete(cartId);
+    }
 }

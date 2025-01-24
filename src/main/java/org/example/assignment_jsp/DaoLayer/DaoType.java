@@ -1,5 +1,5 @@
 package org.example.assignment_jsp.DaoLayer;
 
 public enum DaoType {
-    USER,PRODUCT,CATEGORY,CART
+    USER,PRODUCT,CATEGORY,CART,PLACEORDER
 }

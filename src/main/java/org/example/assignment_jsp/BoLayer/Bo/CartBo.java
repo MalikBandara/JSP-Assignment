@@ -10,4 +10,6 @@ public interface CartBo extends SuperBo {
     boolean saveCart(CartDto cart);
 
     List<CartDto> getAllCart();
+
+    boolean deleteCart(String cartId);
 }
