@@ -1,5 +1,6 @@
 package org.example.assignment_jsp.servelet.Cart;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,7 +18,7 @@ import org.example.assignment_jsp.dto.CartDto;
 import org.example.assignment_jsp.dto.ProductsDto;
 import org.example.assignment_jsp.dto.UserDto;
 import java.io.IOException;
-
+import java.util.List;
 
 
 @WebServlet(urlPatterns = "/cart/*")
@@ -29,6 +30,10 @@ public class CartServlet extends HttpServlet {
     UserBo userBo = (UserBo) BoFactory.getBoFactory().getBo(BoType.USER);
 
     CartBo cartBo = (CartBo) BoFactory.getBoFactory().getBo(BoType.CART);
+
+
+
+
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
