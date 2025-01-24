@@ -136,7 +136,7 @@
                         </div>
                         <div class="card-body dashboard-card-body">
                             <ul class="list-unstyled">
-                                <li><a href="viewOrders.jsp" class="btn btn-block">View Orders</a></li>
+                                <li><a href="ViewPlaceOrders" class="btn btn-block">View Orders</a></li>
                             </ul>
                         </div>
                     </div>
