@@ -29,11 +29,11 @@ public class ProductsDeleteServelet extends HttpServlet {
         boolean b = productsBo.deleteProducts(id);
 
         if (b) {
-//            req.getSession().setAttribute("registrationStatus", "success");
+            req.getSession().setAttribute("registrationStatus", "success");
             resp.sendRedirect("products-delete.jsp");
         } else {
-//            req.getSession().setAttribute("registrationStatus", "error");
-            resp.sendRedirect("AdminDash.jsp");
+            req.getSession().setAttribute("registrationStatus", "error");
+            resp.sendRedirect("AdminDash");
         }
 
 
