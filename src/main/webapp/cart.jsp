@@ -112,12 +112,13 @@
         <table class="table table-striped table-hover shadow-sm rounded-3">
             <thead class="table-dark">
             <tr>
-                <th scope="col">Cart id </th>
-                <th scope="col">item_price</th>
-                <th scope="col">ordered_quantity</th>
-                <th scope="col">total_price</th>
-                <th scope="col">product_id</th>
-                <th scope="col">user_id</th>
+                <th scope="col">Cart id</th>
+                <th scope="col">item price</th>
+                <th scope="col">Ordered quantity</th>
+                <th scope="col">Total price</th>
+                <th scope="col">Product id</th>
+                <th scope="col">user id</th>
+                <th scope="col">Action</th> <!-- New column for Place Order -->
             </tr>
             </thead>
             <tbody>
@@ -132,6 +133,15 @@
                 <td><%= cartDto.getTotalPrice() %></td>
                 <td><%= cartDto.getProduct().getPid() %></td>
                 <td><%= cartDto.getUser().getUserId() %></td>
+                <td>
+                    <form action="PlaceOrderServlet" method="post">
+                        <!-- Pass the cart ID as a hidden field -->
+                        <input type="hidden" name="cartId" value="<%= cartDto.getCartId() %>">
+                        <button type="submit" class="btn btn-success btn-sm">
+                            <i class="fas fa-shopping-cart"></i> Place Order
+                        </button>
+                    </form>
+                </td>
             </tr>
             <%
                 }
@@ -139,6 +149,7 @@
             </tbody>
         </table>
     </div>
+
 
     <% } else { %>
     <div class="alert alert-warning" role="alert">
