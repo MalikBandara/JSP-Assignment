@@ -91,7 +91,7 @@ public class ProductSaveServvlet extends HttpServlet {
             resp.sendRedirect("products-save");
         } else {
             req.getSession().setAttribute("registrationStatus", "error");
-            resp.sendRedirect("AdminDash.jsp");
+            resp.sendRedirect("products-save");
         }
 
 

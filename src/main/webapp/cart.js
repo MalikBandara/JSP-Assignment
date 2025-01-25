@@ -14,6 +14,15 @@ $(".AddCart").click(function () {
     console.log("Total Price:", totalPrice);
     console.log("Product ID:", productId);
 
+    if (parseInt(orderQuantity) > parseInt(quantityAvailable)) {
+        Swal.fire({
+            icon: "error",
+            title: "Insufficient Stock",
+            text: "The ordered quantity exceeds the available stock.",
+        });
+        return;
+    }
+
     $.ajax({
         url: "http://localhost:8082/ASSIGNMENT_JSP_war/cart",
         method: "POST",
@@ -26,6 +35,15 @@ $(".AddCart").click(function () {
         },
         success: (res) => {
             console.log(res);
+            Swal.fire({
+                title: "order !",
+                text: "order added to the cart  Successfully !",
+                icon: "success",
+                confirmButtonText: "OK",
+            }).then(() => {
+                // Refresh the page
+                location.reload();
+            });
         },
         error: (error) => {
             console.error(error);

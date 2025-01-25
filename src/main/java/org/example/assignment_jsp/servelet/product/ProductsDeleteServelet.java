@@ -33,7 +33,7 @@ public class ProductsDeleteServelet extends HttpServlet {
             resp.sendRedirect("products-delete.jsp");
         } else {
             req.getSession().setAttribute("registrationStatus", "error");
-            resp.sendRedirect("AdminDash");
+            resp.sendRedirect("products-delete.jsp");
         }
 
 

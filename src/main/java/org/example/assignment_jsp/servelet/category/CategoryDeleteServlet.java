@@ -27,11 +27,11 @@ public class CategoryDeleteServlet extends HttpServlet {
         boolean b = categoryBo.deleteProducts(id);
 
         if (b) {
-//            req.getSession().setAttribute("registrationStatus", "success");
+            req.getSession().setAttribute("registrationStatus", "success");
             resp.sendRedirect("category-delete.jsp");
         } else {
-//            req.getSession().setAttribute("registrationStatus", "error");
-            resp.sendRedirect("AdminDash.jsp");
+            req.getSession().setAttribute("registrationStatus", "error");
+            resp.sendRedirect("category-delete.jsp");
         }
     }
 }

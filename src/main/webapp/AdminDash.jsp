@@ -151,7 +151,7 @@
                         <div class="card-body dashboard-card-body">
                             <ul class="list-unstyled">
                                 <li><a href="ViewAllUsers" class="btn btn-block">View Users</a></li>
-                                <li><a href="activateDeactivateUser.jsp" class="btn btn-block">Activate/Deactivate User</a></li>
+
                             </ul>
                         </div>
                     </div>

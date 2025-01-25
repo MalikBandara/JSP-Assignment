@@ -11,4 +11,5 @@ public interface PlaceOrderBo extends SuperBo {
 
     List<PlaceOrderDto> getOrders();
 
+    boolean updateOrderStatus(String orderId, String newStatus);
 }

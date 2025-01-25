@@ -78,4 +78,33 @@ public class PlaceOrderDaoImpl implements PlaceOrderDao {
     public Category getCategoryById(String category1) {
         return null;
     }
+
+    @Override
+    public boolean update(String id, String status) {
+
+        Transaction transaction = null;
+        try {
+            Session session = SessionFactoryConfiguration.getInstance().getSession();
+            transaction = session.beginTransaction();
+            PlaceOrder placeOrder = session.get(PlaceOrder.class, id);
+
+            if (placeOrder == null) {
+                return false; // Order not found
+            }
+            placeOrder.setStatus(status);
+
+            // Save changes
+            session.update(placeOrder);
+
+            transaction.commit();
+            return true;
+
+        }catch (Exception e ){
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

@@ -91,7 +91,7 @@ public class ProductsUpdateServlet extends HttpServlet {
             resp.sendRedirect("products-update");
         } else {
             req.getSession().setAttribute("registrationStatus", "error");
-            resp.sendRedirect("AdminDash");
+            resp.sendRedirect("products-update");
         }
 
 

@@ -34,7 +34,7 @@ public class CategoryUpdateServlet extends HttpServlet {
             resp.sendRedirect("category-update.jsp");
         } else {
            req.getSession().setAttribute("registrationStatus", "error");
-            resp.sendRedirect("AdminDash.jsp");
+            resp.sendRedirect("category-update.jsp");
         }
 
 

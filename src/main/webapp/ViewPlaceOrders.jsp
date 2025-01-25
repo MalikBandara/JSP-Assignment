@@ -42,6 +42,7 @@
         }
 
         .table {
+            width: 100%;
             background-color: #ffffff;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -121,6 +122,8 @@
                 <th scope="col">Status</th>
                 <th scope="col">User ID </th>
                 <th scope="col">product ID </th>
+                <th scope="col">Update Status
+                </th>
 
             </tr>
             </thead>
@@ -139,6 +142,20 @@
                 <td><%= orderDto.getStatus() %></td>
                 <td><%= orderDto.getUser().getUserId() %></td>
                 <td><%= orderDto.getProduct().getPid() %></td>
+
+                <td>
+                    <!-- Update Status Button -->
+                    <form action="UpdateOrderStatusServlet" method="POST" class="d-inline">
+                        <input type="hidden" name="orderId" value="<%= orderDto.getOrderId() %>">
+                        <select name="newStatus" class="form-select form-select-sm d-inline w-auto">
+                            <option value="Pending" <%= "Pending".equals(orderDto.getStatus()) ? "selected" : "" %>>Pending</option>
+                            <option value="Processing" <%= "Processing".equals(orderDto.getStatus()) ? "selected" : "" %>>Processing</option>
+                            <option value="Completed" <%= "Completed".equals(orderDto.getStatus()) ? "selected" : "" %>>Completed</option>
+                            <option value="Canceled" <%= "Canceled".equals(orderDto.getStatus()) ? "selected" : "" %>>Canceled</option>
+                        </select>
+                        <button type="submit" class="btn btn-sm btn-primary mt-1">Update</button>
+                    </form>
+                </td>
 
 
             </tr>
@@ -160,5 +177,34 @@
 <!-- Bootstrap 5 JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    <%
+    String registrationStatus = (String) session.getAttribute("registrationStatus");
+    if ("success".equals(registrationStatus)) {
+        session.removeAttribute("registrationStatus"); // Clean up session attribute
+%>
+    Swal.fire({
+        title: 'Order  Status!',
+        text: 'order status has been updated successfully.',
+        icon: 'success',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#D19C97'
+    });
+    <%
+        } else if ("error".equals(registrationStatus)) {
+            session.removeAttribute("registrationStatus"); // Clean up session attribute
+    %>
+    Swal.fire({
+        title: 'Registration Failed',
+        text: 'An error occurred while creating your account. Please try again.',
+        icon: 'error',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#D19C97'
+    });
+    <% } %>
+
+</script>
 </body>
 </html>

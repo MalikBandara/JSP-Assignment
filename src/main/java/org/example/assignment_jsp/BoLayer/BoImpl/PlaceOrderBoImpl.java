@@ -48,4 +48,9 @@ public class PlaceOrderBoImpl implements PlaceOrderBo {
 
         return placeOrderDtos;
     }
+
+    @Override
+    public boolean updateOrderStatus(String orderId, String newStatus) {
+      return   placeOrderDao.update(orderId, newStatus);
+    }
 }

@@ -76,11 +76,16 @@ public class CartServlet extends HttpServlet {
                 productsDto.setQty(String.valueOf(updatedQuantity));  // Set the updated quantity
                 productsBo.updateProducts(productsDto);
                 System.out.println("Product quantity updated successfully.");
+                req.getSession().setAttribute("registrationStatus", "success");
+                resp.sendRedirect("MyCurt.jsp");
             } else {
                 System.out.println("Insufficient stock available.");
+
             }
         }catch (Exception e ){
             e.printStackTrace();
+            req.getSession().setAttribute("registrationStatus", "error");
+            resp.sendRedirect("UserDashBoard.jsp");
         }
     }
 }

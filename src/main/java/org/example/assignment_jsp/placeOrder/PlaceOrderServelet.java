@@ -94,13 +94,14 @@ public class PlaceOrderServelet extends HttpServlet {
 
             if (b){
                 boolean b1 = cartBo.deleteCart(cartId);
-                System.out.println(" cart deleted : "+ b1);
+                req.getSession().setAttribute("registrationStatus", "success");
+                resp.sendRedirect("MyCurt.jsp");
+
+            }else {
 
             }
 
 
-            resp.setStatus(HttpServletResponse.SC_OK);
-            resp.getWriter().write("{\"message\": \"Order placed successfully!\"}");
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
             resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);

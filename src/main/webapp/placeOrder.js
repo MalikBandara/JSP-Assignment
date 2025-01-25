@@ -37,7 +37,15 @@ $(document).ready(function () {
                 orderDate: orderDate, // Add the order date
             },
             success: function (res) {
-                alert("Order placed successfully!");
+                Swal.fire({
+                    title: "order !",
+                    text: "order Placed Successfully  !",
+                    icon: "success",
+                    confirmButtonText: "OK",
+                }).then(() => {
+                    // Refresh the page
+                    location.reload();
+                });
                 $("#paymentModal").modal("hide");
             },
             error: function () {
