@@ -111,7 +111,7 @@
 </div>
 
 <div class="container">
-    <h2>Mens Clothing's</h2>
+    <h2>Women's Clothing's</h2>
 
     <%
         // Retrieve the list of products from the request attribute

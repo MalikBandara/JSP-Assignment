@@ -159,7 +159,7 @@
                 <button type="button" style="background-color: #D19C97; color: black; border: none; padding: 10px 20px; border-radius: 8px; font-size: 16px; cursor: pointer;  transition: background-color 0.3s ease;" class="AddCart"
                         data-product-id="<%= product.getPid() %>"
                         data-item-price="<%= product.getPrice() %>"
-                        data-quantity-available="<%= product.getQty() %>">Save Category</button>
+                        data-quantity-available="<%= product.getQty() %>">Add Cart</button>
 
             </div>
         </div>

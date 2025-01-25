@@ -30,7 +30,7 @@ public class UserRegistrationServlet extends HttpServlet {
             boolean isActive = true; // Default active status
             Timestamp createdAt = new Timestamp(System.currentTimeMillis());
 
-            UserDto user = new UserDto(0, username, email, password, isActive, role, createdAt);
+            UserDto user = new UserDto(0, username, email, password, isActive, "CUSTOMER", createdAt);
 
             boolean b = userBo.SaveUsers(user);
 

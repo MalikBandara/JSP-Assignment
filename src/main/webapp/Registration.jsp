@@ -52,13 +52,7 @@
             <div class="card-body">
                 <form action="Registration" method="post">
                     <!-- User Role Selection -->
-                    <div class="mb-3">
-                        <label for="userRole" class="form-label">User Role</label>
-                        <select class="form-select" id="userRole" name="role" required>
-                            <option value="CUSTOMER" selected>Customer</option>
-                            <option value="ADMIN">Admin</option>
-                        </select>
-                    </div>
+
 
                     <!-- Username Input -->
                     <div class="mb-3">
