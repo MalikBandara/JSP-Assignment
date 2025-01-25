@@ -38,14 +38,8 @@ Click  [here](https://www.youtube.com/watch?v=abc123) to watch the video.
 
 
 
-📧 Contact
-For queries or suggestions:
 
-Email: mmalith520@gmail.com
 
-GitHub: MalikBandara
-
-LinkedIn: Malik Bandara 
 
 
 
