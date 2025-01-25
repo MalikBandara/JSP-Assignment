@@ -15,7 +15,7 @@ Responsive Design: Fully optimized for all devices, including desktop, tablet, a
 🛠️ Tech Stack
 Frontend: HTML, CSS, JavaScript (JSP for templating)
 Backend: JavaEE (Servlets, JSP)
-Database: MySQL with JDBC connection pooling
+Database: Hibernate with Hibernate connection pooling
 Deployment: Apache Tomcat server
 
 📸 Screenshots 
