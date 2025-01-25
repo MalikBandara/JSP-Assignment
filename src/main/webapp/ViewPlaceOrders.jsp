@@ -197,8 +197,8 @@
             session.removeAttribute("registrationStatus"); // Clean up session attribute
     %>
     Swal.fire({
-        title: 'Registration Failed',
-        text: 'An error occurred while creating your account. Please try again.',
+        title: 'status update  Failed',
+        text: 'An error occurred while updating order status. Please try again.',
         icon: 'error',
         confirmButtonText: 'OK',
         confirmButtonColor: '#D19C97'

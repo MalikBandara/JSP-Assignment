@@ -91,6 +91,7 @@ public class PlaceOrderDaoImpl implements PlaceOrderDao {
             if (placeOrder == null) {
                 return false; // Order not found
             }
+
             placeOrder.setStatus(status);
 
             // Save changes
