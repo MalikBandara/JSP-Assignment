@@ -18,6 +18,14 @@ Backend: JavaEE (Servlets, JSP)
 Database: MySQL with JDBC connection pooling
 Deployment: Apache Tomcat server
 
-Hear some screen shots 
+📸 Screenshots 
 
 ![image](https://github.com/user-attachments/assets/3b547ffc-9298-46c2-bd33-25dcf16cbdc8)
+
+![image](https://github.com/user-attachments/assets/ff8b289e-f39e-4906-af85-40666aa7027f)
+
+![image](https://github.com/user-attachments/assets/9c7e0a42-5716-498e-87f4-0f1ed732828e)
+
+
+
+
