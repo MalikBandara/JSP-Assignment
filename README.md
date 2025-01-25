@@ -27,5 +27,19 @@ Deployment: Apache Tomcat server
 ![image](https://github.com/user-attachments/assets/9c7e0a42-5716-498e-87f4-0f1ed732828e)
 
 
+🎥 Demo / Video Walkthrough
+Check out the complete walkthrough of this project on YouTube:
+
+## 🎥 Demo / Video Walkthrough
+
+Check out the complete walkthrough of this project on YouTube:  
+[![E-Commerce Application Demo](https://img.youtube.com/vi/abc123/0.jpg)](https://www.youtube.com/watch?v=abc123)  
+
+Click the thumbnail or [here](https://www.youtube.com/watch?v=abc123) to watch the video.
+
+
+
+
+
 
 
