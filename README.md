@@ -35,6 +35,8 @@ Check out the complete walkthrough of this project on YouTube:
 
 Click  [here](https://youtu.be/JiZZz98cdPA?si=fEMQMHsNy_KKrBxg) to watch the video.
 
+Direct Link to yt - https://youtu.be/JiZZz98cdPA?si=fEMQMHsNy_KKrBxg
+
 
 
 
